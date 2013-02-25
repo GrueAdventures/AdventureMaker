@@ -11,6 +11,7 @@ public class Item {
 	private String auralName;
 	private String auralDescription;
 	
+	//TODO: Replace arrays with lists or vectors or SOMETHING else
 	private String[] properties;
 	
 	public Item(String id, String vName, String vDesc, String aName, String aDesc, String[] props){
@@ -67,9 +68,18 @@ public class Item {
 		return properties;
 	}
 
-	//TODO: Add checks to make sure it doesn't repeat input in array
 	public void addProperty(String property){
 		int i=0;
+		
+		//Making sure we are not repeating input in array
+		while(i<properties.length){
+			if(properties[i].equalsIgnoreCase(property)){
+				System.out.println("Property "+property+" is already a property off the item");
+				return;
+			}
+		}
+		
+		i=0;
 		//Search for first null String occurrence. This is where we add the property.
 		while(properties[i] != null){
 			i++;
@@ -79,6 +89,8 @@ public class Item {
 	
 	public void removeProperty(String property){
 		int i=0;
+		//Search for first occurrence of "property" and removes it from array. We are guaranteed a single occurrence of
+		//a property by addProperty(String)
 		while(!properties[i].equalsIgnoreCase(property)){
 			i++;
 			if(i==properties.length){
