@@ -1,0 +1,6 @@
+A list of TODO items in no particular order.
+
+TODO: Replace arrays with lists, vectors, or something else in Player, Scene, and Item
+TODO: Populate addScene() and removeScene() methods in Scene
+TODO: Populate Ctrl object class
+TODO: Populate World object class and its associated methods
