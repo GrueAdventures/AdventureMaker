@@ -1,5 +1,7 @@
 package objects;
 
+import java.util.Vector;
+
 public class Scene {
 	
 	private String type;
@@ -15,9 +17,8 @@ public class Scene {
 	
 	private Ctrl controller;
 	
-	//TODO: Replace arrays with lists or vectors or SOMETHING else
-	private Item[] items;
-	private Scene[] adjoins;
+	private Vector<Item> items;
+	private Vector<Scene> adjoins;
 	
 	//Constructor with Ctrl variable
 	public Scene(String id, String vName, String vDescription, String vBackdrop,
@@ -31,8 +32,8 @@ public class Scene {
 		auralDescription = aDescription;
 		auralBackdrop = aBackdrop;
 		this.controller = controller;
-		items = new Item[64];
-		adjoins = new Scene[64];
+		items = new Vector<Item>();
+		adjoins = new Vector<Scene>();
 		
 	}
 	
@@ -48,8 +49,8 @@ public class Scene {
 		auralDescription = aDescription;
 		auralBackdrop = aBackdrop;
 		controller = null;
-		items = new Item[64];
-		adjoins = new Scene[64];
+		items = new Vector<Item>();
+		adjoins = new Vector<Scene>();
 	}
 
 	public String getType() {
@@ -120,49 +121,50 @@ public class Scene {
 		this.controller = controller;
 	}
 
-	public Item[] getItems() {
+	public Vector<Item> getItems() {
 		return items;
 	}
 
-	public Scene[] getAdjoins() {
+	public Vector<Scene> getAdjoins() {
 		return adjoins;
 	}	
 	
 	public void addItem(Item item){
-		int i=0;	
-		//Making sure we are not repeating input in array
-		while(i<items.length){
-			if(items[i].getId().equalsIgnoreCase(item.getId())){
-				System.out.println("Item "+item.getId()+" is already an item in the room");
-				return;
-			}
+		//Check to make sure scene does not already contain the item
+		if(!items.contains(item)){
+			items.add(item);
 		}
-		
-		i=0;
-		//Search for first null String occurrence. This is where we add the item.
-		while(items[i] != null){
-			i++;
-		}
-		items[i] = item;
+		else
+			System.out.println(this.id+" already contains "+item.getId());
 	}
-	
+	//This may have to be by ID
+	//We'll see how it goes
 	public void removeItem(Item item){
+		
+//		if(items.remove(item)){
+//			System.out.println("");
+//		}
+		
 		int i=0;
 		//Search for first occurrence of "item" and removes it from array. We are guaranteed a single occurrence of
 		//an item by addItem(String)
-		while(!items[i].getId().equalsIgnoreCase(item.getId())){
+		while(!items.get(i).getId().equalsIgnoreCase(item.getId())){
 			i++;
-			if(i==items.length){
+			if(i==items.size()){
 				System.out.println("Item "+item.getId()+" was not found.");
 				return;
 			}
 		}
-	items[i] = null;
+	items.remove(item);
 	}
 	
-	//TODO: Populate addScene
 	public void addScene(Scene scene){
-		
+		//Check to make sure scene is not already joined
+		if(!adjoins.contains(scene)){
+			adjoins.add(scene);
+		}
+		else
+			System.out.println(this.id+" already contains "+scene.getId());
 	}
 	
 	//TODO: Populate removeScene
