@@ -2,7 +2,7 @@ package objects;
 
 import java.util.Vector;
 
-public class Scene {
+public class Scene implements ObjectInterface{
 	
 	private String type;
 	private String id;

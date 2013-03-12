@@ -1,11 +1,13 @@
 package objects;
 
+import java.util.Vector;
+
 public class Exec {
-	private String action;
-	//TODO: Replace array with SOMETHING else 
-	private String[] args;
 	
-	public Exec(String act, String[] arg){
+	private String action;
+	private Vector<String> args;
+	
+	public Exec(String act, Vector<String> arg){
 		action = act;
 		args = arg;
 	}
@@ -18,11 +20,11 @@ public class Exec {
 		action = act;
 	}
 
-	public String[] getArgs(){
+	public Vector<String> getArgs(){
 		return args;
 	}
 
-	public void setArgs(String[] arg){
+	public void setArgs(Vector<String> arg){
 		args = arg;
 	}
 

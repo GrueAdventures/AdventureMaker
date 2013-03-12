@@ -1,25 +1,37 @@
 package objects;
 
-public class Player {
+import java.util.Vector;
+
+public class Player implements ObjectInterface{
 	
 	private String type;
-	//TODO: Replace arrays with lists or vectors or SOMETHING else
-	private Item[] items;
+	private String id;
+	
+	private Vector<Item> items;
 	private String scene;
 	
 	
 	public Player(String initScene){
 		type = "Player";
+		id = "player";
 		scene = initScene;
-		items = new Item[64];
+		items = new Vector<Item>();
 	}
 
 
+	public String getId(){
+		return id;
+	}
+	
+	public void setId(String id){
+		System.out.println("Cannot change id of player");
+	}
+	
 	public String getType() {
 		return type;
 	}
 
-	public Item[] getItems() {
+	public Vector<Item> getItems() {
 		return items;
 	}
 
@@ -33,34 +45,26 @@ public class Player {
 	}
 	
 	public void addItem(Item item){
-		int i=0;	
-		//Making sure we are not repeating input in array
-		while(i<items.length){
-			if(items[i].getId().equalsIgnoreCase(item.getId())){
-				System.out.println("Item "+item.getId()+" is already an item that the player has");
-				return;
-			}
+		//Check to make sure scene does not already contain the item
+		if(!items.contains(item)){
+			items.add(item);
 		}
-		
-		i=0;
-		//Search for first null String occurrence. This is where we add the item.
-		while(items[i] != null){
-			i++;
-		}
-		items[i] = item;
+		else
+			System.out.println("Player already has "+item.getId());
 	}
 	
+	//We'll leave it like this for now, see how it works, and maybe change it later
 	public void removeItem(Item item){
 		int i=0;
 		//Search for first occurrence of "item" and removes it from array. We are guaranteed a single occurrence of
 		//an item by addItem(String)
-		while(!items[i].getId().equalsIgnoreCase(item.getId())){
+		while(!items.get(i).getId().equalsIgnoreCase(item.getId())){
 			i++;
-			if(i==items.length){
+			if(i==items.size()){
 				System.out.println("Item "+item.getId()+" was not found.");
 				return;
 			}
 		}
-	items[i] = null;
+	items.remove(item);
 	}
 }

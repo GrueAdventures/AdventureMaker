@@ -1,6 +1,9 @@
 A list of TODO items in no particular order.
 
-TODO: Replace arrays with lists, vectors, or something else in Player, Scene, and Item
-TODO: Populate addScene() and removeScene() methods in Scene
+DONE: Replace arrays with lists, vectors, or something else in Player, Scene, and Item
+DONE: Populate addScene() and removeScene() methods in Scene
 TODO: Populate Ctrl object class
 TODO: Populate World object class and its associated methods
+TODO: Check all "remove" methods and see how they are working/attempt to simplify them (Player, Event, Scene, Item, etc).
+DONE: Make supertype for all of the objects that go into the World.java vector to share (interface?)
+DONE: Implement ObjectInterface in all objects that go into world. (Ctrl, Event, Item, Player, Scene).

@@ -2,7 +2,7 @@ package objects;
 
 import java.util.Vector;
 
-public class Item {
+public class Item implements ObjectInterface{
 	
 	private String type;
 	private String id;
@@ -31,6 +31,10 @@ public class Item {
 
 	public String getId() {
 		return id;
+	}
+	
+	public void setId(String id){
+		this.id = id;
 	}
 
 	public String getVisualName() {

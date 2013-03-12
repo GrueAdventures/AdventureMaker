@@ -1,15 +1,17 @@
 package objects;
 
-public class Event {
+import java.util.Vector;
+
+public class Event implements ObjectInterface{
 	//TODO: Populate this class
 	private String type;
 	private String id;
 	
-	private String[] on;
-	private Exec[] exec;
-	private Report[] report;
+	private Vector<String> on;
+	private Vector<Exec> exec;
+	private Vector<Report> report;
 	
-	public Event(String id, String[] on, Exec[] exec, Report[] report){
+	public Event(String id, Vector<String> on, Vector<Exec> exec, Vector<Report> report){
 		type = "event";
 		this.id = id;
 		this.on = on;
@@ -29,27 +31,27 @@ public class Event {
 		this.id = id;
 	}
 
-	public String[] getOn() {
+	public Vector<String> getOn() {
 		return on;
 	}
 
-	public void setOn(String[] on) {
+	public void setOn(Vector<String> on) {
 		this.on = on;
 	}
 
-	public Exec[] getExec() {
+	public Vector<Exec> getExec() {
 		return exec;
 	}
 
-	public void setExec(Exec[] exec) {
+	public void setExec(Vector<Exec> exec) {
 		this.exec = exec;
 	}
 
-	public Report[] getReport() {
+	public Vector<Report> getReport() {
 		return report;
 	}
 
-	public void setReport(Report[] report) {
+	public void setReport(Vector<Report> report) {
 		this.report = report;
 	}
 	
