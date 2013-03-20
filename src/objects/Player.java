@@ -10,11 +10,18 @@ public class Player implements ObjectInterface{
 	private Vector<Item> items;
 	private String scene;
 	
-	
+	//Why are we passing initScene as a String and not a Scene object?
+	//In addItem we pass an Item object to Player.
 	public Player(String initScene){
 		type = "Player";
 		id = "player";
 		scene = initScene;
+		items = new Vector<Item>();
+	}
+	public Player(){
+		type = "Player";
+		id = "player";
+		scene = null;
 		items = new Vector<Item>();
 	}
 
@@ -66,5 +73,9 @@ public class Player implements ObjectInterface{
 			}
 		}
 	items.remove(item);
+	}
+	public boolean containsItem(String id) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

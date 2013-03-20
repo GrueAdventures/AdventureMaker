@@ -15,14 +15,27 @@ public class Item implements ObjectInterface{
 	
 	private Vector<String> properties;
 	
-	public Item(String id, String vName, String vDesc, String aName, String aDesc, Vector<String> props){
+	public Item(String id, String visName, String visDesc, String aurName, String aurDesc, Vector<String> props){
 		type = "item";
 		this.id = id;
-		visualName = vName;
-		visualDescription = vDesc;
-		auralName = aName;
-		auralDescription = aDesc;
+		visualName = visName;
+		visualDescription = visDesc;
+		auralName = aurName;
+		auralDescription = aurDesc;
 		properties = props;
+	}
+
+// constructor for creating an Item with only an ID.
+// I don't know if this is necessary.
+	public Item(String id){
+		type = "item";
+		this.id = id;
+		visualName = null;
+		visualDescription = null;
+		auralName = null;
+		auralDescription = null;
+		properties = null;
+		
 	}
 	
 	public String getType() {
