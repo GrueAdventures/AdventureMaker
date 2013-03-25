@@ -37,7 +37,30 @@ public class Item implements ObjectInterface{
 		properties = null;
 		
 	}
+
+	public void addProperty(String property){
+		//Check to make sure scene does not already contain the item
+		if(!properties.contains(property)){
+			properties.add(property);
+		}
+		else
+			System.out.println(this.id+" already contains "+property);
+	}
 	
+	//We'll do this for now, may change later
+	public void removeProperty(String property){
+		int i=0;
+		//Search for first occurrence of "property" and removes it from array. We are guaranteed a single occurrence of
+		//a property by addProperty(String)
+		while(!properties.get(i).equalsIgnoreCase(property)){
+			i++;
+			if(i==properties.size()){
+				System.out.println("Property "+property+" was not found.");
+				return;
+			}
+		}
+		properties.remove(property);
+	}
 	public String getType() {
 		return type;
 	}
@@ -84,30 +107,6 @@ public class Item implements ObjectInterface{
 
 	public Vector<String> getProperties() {
 		return properties;
-	}
-
-	public void addProperty(String property){
-		//Check to make sure scene does not already contain the item
-		if(!properties.contains(property)){
-			properties.add(property);
-		}
-		else
-			System.out.println(this.id+" already contains "+property);
-	}
-	
-	//We'll do this for now, may change later
-	public void removeProperty(String property){
-		int i=0;
-		//Search for first occurrence of "property" and removes it from array. We are guaranteed a single occurrence of
-		//a property by addProperty(String)
-		while(!properties.get(i).equalsIgnoreCase(property)){
-			i++;
-			if(i==properties.size()){
-				System.out.println("Property "+property+" was not found.");
-				return;
-			}
-		}
-		properties.remove(property);
 	}
 	
 }

@@ -1,5 +1,8 @@
+//I made the arguments consistent, for better or for worse.
+
 package objects;
 
+import java.util.Iterator;
 import java.util.Vector;
 
 public class Player implements ObjectInterface{
@@ -8,14 +11,13 @@ public class Player implements ObjectInterface{
 	private String id;
 	
 	private Vector<Item> items;
-	private String scene;
+	private Scene scene;
 	
-	//Why are we passing initScene as a String and not a Scene object?
-	//In addItem we pass an Item object to Player.
-	public Player(String initScene){
+	public Player(Scene initScene){
 		type = "Player";
 		id = "player";
 		scene = initScene;
+		
 		items = new Vector<Item>();
 	}
 	public Player(){
@@ -42,18 +44,18 @@ public class Player implements ObjectInterface{
 		return items;
 	}
 
-	public String getScene() {
+	public Scene getScene() {
 		return scene;
 	}
 
 
-	public void setScene(String scene) {
-		this.scene = scene;
+	public void setScene(Scene obScene) {
+		this.scene = obScene;
 	}
 	
 	public void addItem(Item item){
 		//Check to make sure scene does not already contain the item
-		if(!items.contains(item)){
+		if(!containsItem(item)){
 			items.add(item);
 		}
 		else
@@ -74,8 +76,12 @@ public class Player implements ObjectInterface{
 		}
 	items.remove(item);
 	}
-	public boolean containsItem(String id) {
-		// TODO Auto-generated method stub
+	public boolean containsItem(Item item) {
+		//The outside class will have to determine whether or not two objects are equals
+		Iterator<Item> itemItr = items.iterator();
+		while(itemItr.hasNext()){
+			if(itemItr.next().equals(item)) return true;
+		}
 		return false;
 	}
 }

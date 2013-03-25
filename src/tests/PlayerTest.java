@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import objects.Item;
 import objects.Player;
+import objects.Scene;
 
 import org.junit.Test;
 
@@ -13,11 +14,12 @@ public class PlayerTest {
 	public void testPlayer() {
 		//Basic Constructor Test1 (and get test)
 		//Create a player with a starting scene
-		Player testPlayer1 = new Player("testScene");
+		Scene testScene = new Scene("testScene");
+		Player testPlayer1 = new Player(testScene);
 		assertTrue(testPlayer1.getType() == "Player"
 				 &&testPlayer1.getId() == "player"
 				 &&testPlayer1.getItems().isEmpty()
-				 &&testPlayer1.getScene() == "testScene");
+				 &&testPlayer1.getScene() == testScene);
 		//Basic Constructor Test2 (and get test)
 		//Create player without a starting scene
 		Player testPlayer2 = new Player();
@@ -40,7 +42,7 @@ public class PlayerTest {
 		Player testPlayer = new Player();
 		Item testItem = new Item("testItem");
 		testPlayer.addItem(testItem);
-		assertTrue(testPlayer.containsItem("testItem"));
+		assertTrue(testPlayer.containsItem(testItem));
 		
 		fail("Not yet implemented");
 	}
@@ -58,13 +60,13 @@ public class PlayerTest {
 		
 		//test basic remove
 		testPlayer.removeItem(testItem1);
-		assertTrue(!testPlayer.containsItem("testItem1"));
-		assertTrue(testPlayer.containsItem("testItem2"));
+		assertTrue(!testPlayer.containsItem(testItem1));
+		assertTrue(testPlayer.containsItem(testItem2));
 		
 		//test remove on an item that isn't in player's item vector
 		testPlayer.removeItem(testItem1);
-		assertTrue(!testPlayer.containsItem("testItem1"));
-		assertTrue(testPlayer.containsItem("testItem2"));
+		assertTrue(!testPlayer.containsItem(testItem1));
+		assertTrue(testPlayer.containsItem(testItem2));
 		
 		//test remove on  empty array
 		testPlayer.removeItem(testItem2);
