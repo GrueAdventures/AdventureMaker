@@ -2,7 +2,7 @@ package objects;
 
 import java.util.Vector;
 
-public class Item implements ObjectInterface{
+public class Item extends AbstractObject implements ObjectInterface{
 	
 	private String type;
 	private String id;

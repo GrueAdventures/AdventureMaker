@@ -5,7 +5,7 @@ package objects;
 import java.util.Iterator;
 import java.util.Vector;
 
-public class Player implements ObjectInterface{
+public class Player extends AbstractObject implements ObjectInterface{
 	
 	private String type;
 	private String id;
@@ -55,7 +55,7 @@ public class Player implements ObjectInterface{
 	
 	public void addItem(Item item){
 		//Check to make sure scene does not already contain the item
-		if(!containsItem(item)){
+		if(!items.contains(item)){
 			items.add(item);
 		}
 		else
@@ -64,24 +64,41 @@ public class Player implements ObjectInterface{
 	
 	//We'll leave it like this for now, see how it works, and maybe change it later
 	public void removeItem(Item item){
-		int i=0;
+//		int i=0;
 		//Search for first occurrence of "item" and removes it from array. We are guaranteed a single occurrence of
 		//an item by addItem(String)
-		while(!items.get(i).getId().equalsIgnoreCase(item.getId())){
-			i++;
-			if(i==items.size()){
-				System.out.println("Item "+item.getId()+" was not found.");
-				return;
-			}
-		}
+//		while(!items.get(i).getId().equalsIgnoreCase(item.getId())){
+//			i++;
+//			if(i==items.size()){
+//				System.out.println("Item "+item.getId()+" was not found.");
+//				return;
+//			}
+//		}
 	items.remove(item);
 	}
-	public boolean containsItem(Item item) {
+	
+	public Item getItemById(String id){
+		Iterator<Item> itemItr = items.iterator();
+		Item temp;
+		while(itemItr.hasNext()){
+			temp = itemItr.next();
+			if(temp.equals(id)) return temp;
+		}
+		System.out.println("returning null");
+		return null;
+	}
+	
+	public boolean hasItem(String id) {
 		//The outside class will have to determine whether or not two objects are equals
 		Iterator<Item> itemItr = items.iterator();
 		while(itemItr.hasNext()){
-			if(itemItr.next().equals(item)) return true;
+			if(itemItr.next().getId().equals(id)) return true;
 		}
 		return false;
 	}
+	
+	public boolean hasItem(Item item){
+		return items.contains(item);
+	}
+	
 }

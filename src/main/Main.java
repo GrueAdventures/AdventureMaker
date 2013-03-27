@@ -8,6 +8,19 @@ public class Main {
 	public static void main(String[] args){
 		Scanner in = new Scanner(System.in);
 		String input;
+		
+//		Player player = new Player();
+//		player.addItem(new Item("item1"));
+//		player.addItem(new Item("item2"));
+//		player.addItem(new Item("item3"));
+//		for(int i=0; i<3; i++){
+//			System.out.println(player.getItemIdByNumber(i));
+//		}
+//		player.removeItem(player.getItemByNumber(1));
+//		for(int i=0; i<3; i++){
+//			System.out.println(player.getItemIdByNumber(i));
+//		}
+//		
 		while(true){
 			System.out.println("Please enter type of item to create:");
 			input = in.next();

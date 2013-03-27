@@ -5,8 +5,8 @@ import java.util.Vector;
 public class World {
 	private Vector<ObjectInterface> world;
 	
-	public World(Vector<ObjectInterface> world){
-		this.world = world;
+	public World(){
+		this.world = new Vector<ObjectInterface>();
 	}
 	
 	public void addObject(ObjectInterface object){
