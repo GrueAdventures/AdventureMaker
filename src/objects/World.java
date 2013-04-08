@@ -1,26 +1,42 @@
 package objects;
 
+import java.util.Iterator;
 import java.util.Vector;
 
 public class World {
-	private Vector<ObjectInterface> world;
+	private Player player;
+	private Vector<Scene> scenes;
+	private Vector<Event> events;
+	private Vector<Item> items;
+	private Vector<Ctrl> ctrls;
+
 	
 	public World(){
-		this.world = new Vector<ObjectInterface>();
+		player = new Player();
+		scenes = new Vector<Scene>();
+		events = new Vector<Event>();
+		items = new Vector<Item>();
+		ctrls = new Vector<Ctrl>();
 	}
-	
-	public void addObject(ObjectInterface object){
-		if(!world.contains(object)){
-			world.add(object);
-		}
-		else
-			System.out.println("Object is already in the world");
-	}
-	
-	//Implement this
-	public void removeObject(ObjectInterface object){
-		
-	}
-	
 
+	public Player getPlayer() {
+		return player;
+	}
+	
+	public Vector<Item> getItems() {
+		return items;
+	}
+
+	public Vector<Scene> getScenes() {
+		return scenes;
+	}
+
+	public Vector<Event> getEvents() {
+		return events;
+	}
+
+	public Vector<Ctrl> getCtrls() {
+		return ctrls;
+	}
+	
 }
