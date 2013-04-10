@@ -1,5 +1,8 @@
 package objects;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -9,7 +12,8 @@ public class World {
 	private Vector<Event> events;
 	private Vector<Item> items;
 	private Vector<Ctrl> ctrls;
-
+	
+	private Translator translator = new Translator();
 	
 	public World(){
 		player = new Player();
@@ -113,6 +117,22 @@ public class World {
 		}
 		events.remove(event);
 	}
+	
+	public void translate() throws FileNotFoundException{
+		File file = new File("test.json");
+		PrintWriter writer = new PrintWriter(file);
+		
+		for(int i=0; i<items.size(); i++){
+			translator.itemTranslate(writer, items.get(i));
+			
+		}
+		
+		for(int i=0; i<scenes.size(); i++){
+			translator.sceneTranslate(writer, scenes.get(i));
+		}
+		
+	}
+	
 	
 	//getCtrls()
 }

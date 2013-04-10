@@ -20,22 +20,33 @@ public class Scene implements ObjectInterface{
 	private Vector<Item> items;
 	private Vector<Scene> adjoins;
 	
-	//Constructor with Ctrl variable
+	public Scene(){
+		type = "scene";
+		this.id = "";
+		visualName = "";
+		visualDescription = "";
+		auralName = "";
+		auralDescription = "";
+		auralBackdrop = "";
+		this.controller = null;
+		items = new Vector<Item>();
+		adjoins = new Vector<Scene>();	
+	}
 	
+	//Constructor with Ctrl variable
 	public Scene(String id){
 		type = "scene";
 		this.id = id;
-		visualName = null;
-		visualDescription = null;
-		auralName = null;
-		auralDescription = null;
-		auralBackdrop = null;
+		visualName = "";
+		visualDescription = "";
+		auralName = "";
+		auralDescription = "";
+		auralBackdrop = "";
 		this.controller = null;
 		items = new Vector<Item>();
-		adjoins = new Vector<Scene>();
-		
-		
+		adjoins = new Vector<Scene>();	
 	}
+	
 	public Scene(String id, String vName, String vDescription, String vBackdrop,
 			String aName, String aDescription, String aBackdrop, Ctrl controller){
 		type = "scene";

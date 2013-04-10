@@ -5,6 +5,7 @@ import objects.*;
 
 public class Driver {
 	public static void main(String[] args){
+		
 		ObjectEditor.edit(new World());
 		
 	}

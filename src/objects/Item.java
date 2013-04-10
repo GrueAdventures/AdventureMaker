@@ -40,11 +40,11 @@ public class Item extends AbstractObject implements ObjectInterface{
 	public Item(String id){
 		type = "item";
 		this.id = id;
-		visualName = null;
-		visualDescription = null;
-		auralName = null;
-		auralDescription = null;
-		properties = null;
+		visualName = "";
+		visualDescription = "";
+		auralName = "";
+		auralDescription = "";
+		properties = new Vector<String>();
 		
 	}
 
