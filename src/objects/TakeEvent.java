@@ -1,13 +1,13 @@
 package objects;
 
 public class TakeEvent {
-	String itemId;
+	Item item;
 	
-	public TakeEvent(String takeItem){
-		itemId = takeItem;		
+	public TakeEvent(Item takeItem){
+		item = takeItem;		
 	}
 	
-	public String getItem(){
-		return itemId;
+	public Item getItem(){
+		return item;
 	}
 }

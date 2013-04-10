@@ -6,6 +6,7 @@ public class Item extends AbstractObject implements ObjectInterface{
 	
 	private String type;
 	private String id;
+	private String name;
 	
 	private String visualName;
 	private String visualDescription;
@@ -67,6 +68,14 @@ public class Item extends AbstractObject implements ObjectInterface{
 
 	public String getId() {
 		return id;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	public void setId(String id){

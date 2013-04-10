@@ -1,31 +1,41 @@
 package objects;
 
 public class MoveEvent {
-	String sceneId;
-	String moveDescription;
+	Scene scene;
+	String visMoveDescription;
+	String aurMoveDescription;
 	
-	public MoveEvent(String scene){
-		sceneId = scene;
+	public MoveEvent(Scene scene){
+		this.scene = scene;
 	}
 	
-	public MoveEvent (String scene, String description){
-		sceneId = scene;
-		moveDescription = description;
+	public MoveEvent (Scene scene, String visDescription, String aurDescription){
+		this.scene = scene;
+		visMoveDescription = visDescription;
+		aurMoveDescription = aurDescription;
 	}
 	
-	public String getSceneId(){
-		return sceneId;
+	public Scene getScene(){
+		return scene;
 	}
 	
-	public String getMoveDesc(){
-		return moveDescription;
+	public String getVisMoveDesc(){
+		return visMoveDescription;
 	}
 	
-	public void setSceneId(String scene){
-		sceneId = scene;
+	public String getAurMoveDesc(){
+		return aurMoveDescription;
 	}
 	
-	public void setMoveDesc(String description){
-		moveDescription = description;
+	public void setScene(Scene scene){
+		this.scene = scene;
+	}
+	
+	public void setVisMoveDesc(String description){
+		visMoveDescription = description;
+	}
+	
+	public void setAurMoveDesc(String description){
+		aurMoveDescription = description;
 	}
 }
