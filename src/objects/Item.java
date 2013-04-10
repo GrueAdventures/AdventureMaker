@@ -16,6 +16,16 @@ public class Item extends AbstractObject implements ObjectInterface{
 	
 	private Vector<String> properties;
 	
+	public Item(){
+		type = "item";
+		id = "";
+		visualName = "";
+		visualDescription = "";
+		auralName = "";
+		auralDescription = "";
+		properties = new Vector<String>();
+	}
+	
 	public Item(String id, String visName, String visDesc, String aurName, String aurDesc, Vector<String> props){
 		type = "item";
 		this.id = id;
