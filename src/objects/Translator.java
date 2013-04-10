@@ -469,7 +469,7 @@ public class Translator {
 	public void itemTranslate(PrintWriter writer, Item item){
 		writer.println("    {\r\n" + 
 				"        \"visual\": {\r\n" + 
-				"            \"name\": \""+item.getName()+"\",\r\n" + 
+				"            \"name\": \""+item.getVisualName()+"\",\r\n" + 
 				"            \"description\": \""+item.getVisualDescription()+"\"\r\n" + 
 				"        },\r\n" + 
 				"        \"aural\": {\r\n" + 
