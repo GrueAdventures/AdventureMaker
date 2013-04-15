@@ -8,6 +8,7 @@ import java.util.Vector;
 
 public class World {
 	private Player player;
+	private EditableItem item;
 	private Vector<Scene> scenes;
 	private Vector<Event> events;
 	private Vector<Item> items;
@@ -17,21 +18,24 @@ public class World {
 	
 	public World(){
 		player = new Player();
+		item = new EditableItem();
 		scenes = new Vector<Scene>();
 		events = new Vector<Event>();
 		items = new Vector<Item>();
 		ctrls = new Vector<Ctrl>();
 	}
 
-	public Player getPlayer() {
-		return player;
+//	public Player getPlayer() {
+//		return player;
+//	}
+	
+	public EditableItem getItem(){
+		return item;
 	}
 	
 	public Vector<Item> getItems() {
 		return items;
 	}
-	
-	
 	
 	public void addItem(Item item){
 		//Check to make sure world does not already contain the item
