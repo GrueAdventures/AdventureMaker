@@ -3,12 +3,15 @@ package objects;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.Iterator;
 import java.util.Vector;
+
+import util.annotations.Column;
+import util.annotations.Row;
 
 public class World {
 	private Player player;
 	private EditableItem item;
+	private EditableScene scene;
 	private Vector<Scene> scenes;
 	private Vector<Event> events;
 	private Vector<Item> items;
@@ -19,6 +22,7 @@ public class World {
 	public World(){
 		player = new Player();
 		item = new EditableItem();
+		scene = new EditableScene();
 		scenes = new Vector<Scene>();
 		events = new Vector<Event>();
 		items = new Vector<Item>();
@@ -29,10 +33,12 @@ public class World {
 //		return player;
 //	}
 	
+	@Row(0) @Column(0)
 	public EditableItem getItem(){
 		return item;
 	}
 	
+	@Row(1) @Column(0)
 	public Vector<Item> getItems() {
 		return items;
 	}
@@ -64,6 +70,12 @@ public class World {
 		return items.get(i-1);
 	}
 
+	@Row(0) @Column(1)
+	public EditableScene getScene(){
+		return scene;
+	}
+	
+	@Row(2) @Column(0)
 	public Vector<Scene> getScenes() {
 		return scenes;
 	}
@@ -95,6 +107,7 @@ public class World {
 		return scenes.get(i-1);
 	}
 
+	@Row(3) @Column(0)
 	public Vector<Event> getEvents() {
 		return events;
 	}
@@ -137,6 +150,4 @@ public class World {
 		
 	}
 	
-	
-	//getCtrls()
 }

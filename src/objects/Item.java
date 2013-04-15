@@ -1,6 +1,8 @@
 package objects;
 
-import java.util.Vector;
+import util.annotations.Column;
+import util.annotations.Row;
+import util.annotations.Visible;
 
 public class Item extends AbstractObject implements ObjectInterface{
 	
@@ -76,40 +78,47 @@ public class Item extends AbstractObject implements ObjectInterface{
 //		}
 //		properties.remove(property);
 //	}
-
+	
+	@Visible(false)
 	public String getType() {
 		return type;
 	}
-
+	
+	
+	@Row(0)  @Column(0)
 	public String getId() {
 		return id;
 	}
-
+	
+	@Row(1) @Column(0)
 	public String getVisualName() {
 		return visualName;
 	}
 
+	@Row(2) @Column(0)
 	public String getVisualDescription() {
 		return visualDescription;
 	}
 
+	@Row(3) @Column(0)
 	public String getAuralName() {
 		return auralName;
 	}
 
+	@Row(4) @Column(0)
 	public String getAuralDescription() {
 		return auralDescription;
 	}
 
+	@Row(5) @Column(0)
 	public boolean getUseable(){
 		return useable;
 	}
 	
+	@Row(6) @Column(0)
 	public boolean getTakeable(){
 		return takeable;
 	}
-//	public Vector<String> getProperties() {
-//		return properties;
-//	}
+
 	
 }
