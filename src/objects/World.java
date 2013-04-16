@@ -44,6 +44,7 @@ public class World {
 	}
 	
 	public void addItem(Item item){
+		item = (Item) item;
 		//Check to make sure world does not already contain the item
 		if(!items.contains(item)){
 			items.add(item);

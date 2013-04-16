@@ -21,8 +21,11 @@ public class Driver {
 		ObjectEditor.setPropertyAttribute(World.class, "Events", AttributeNames.CONTAINER_WIDTH, 1000);
 		ObjectEditor.setPropertyAttribute(World.class, "Events", AttributeNames.CONTAINER_HEIGHT, 100);
 		
-		ObjectEditor.setPropertyAttribute(EditableItem.class, "Save", AttributeNames.SHOW_BUTTON, true);
-		//ObjectEditor.setDefaultAttribute(AttributeNames.COMPONENT_BACKGROUND, Color.BLUE);
+		ObjectEditor.setPropertyAttribute(EditableScene.class, "Adjoins", AttributeNames.CONTAINER_WIDTH, 400);
+		ObjectEditor.setPropertyAttribute(EditableScene.class, "Items", AttributeNames.CONTAINER_WIDTH, 400);
+		
+//		ObjectEditor.setPropertyAttribute(EditableItem.class, "Save", AttributeNames.SHOW_BUTTON, true);
+//		ObjectEditor.setDefaultAttribute(AttributeNames.COMPONENT_BACKGROUND, Color.BLUE);
 		
 		ObjectEditor.edit(new World());
 		

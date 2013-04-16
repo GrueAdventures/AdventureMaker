@@ -45,6 +45,7 @@ public class EditableScene extends Scene {
 		this.controller = controller;
 	}
 	
+	@Row(9) @Column(0)
 	public void addItem(String item){
 		//Check to make sure scene does not already contain the item
 		if(!items.contains(item)){
@@ -56,6 +57,7 @@ public class EditableScene extends Scene {
 	
 	//This may have to be by ID
 	//We'll see how it goes
+	@Row(9) @Column(2)
 	public void removeItem(String item){
 		int i=0;
 		//Search for first occurrence of "item" and removes it from array. We are guaranteed a single occurrence of
@@ -70,6 +72,7 @@ public class EditableScene extends Scene {
 	items.remove(item);
 	}
 	
+	@Row(11) @Column(0)
 	public void addScene(String scene){
 		//Check to make sure scene is not already joined
 		if(!adjoins.contains(scene)){
@@ -79,6 +82,7 @@ public class EditableScene extends Scene {
 			System.out.println(this.id+" already contains "+scene);
 	}
 	
+	@Row(11) @Column(2)
 	public void removeScene(String scene){
 		int i=0;
 		//Search for first occurrence of "item" and removes it from array. We are guaranteed a single occurrence of

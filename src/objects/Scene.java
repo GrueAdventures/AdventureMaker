@@ -134,7 +134,7 @@ public class Scene implements ObjectInterface{
 		return items;
 	}
 
-	@Row(9) @Column(0)
+	@Row(10) @Column(0)
 	public Vector<String> getAdjoins() {
 		return adjoins;
 	}	
