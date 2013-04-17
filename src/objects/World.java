@@ -10,22 +10,22 @@ import util.annotations.Row;
 
 public class World {
 	private Player player;
-	private EditableItem item;
-	private EditableScene scene;
-	private Vector<Scene> scenes;
+	private ItemTab itemTab;
+	private SceneTab sceneTab;
+//	private Vector<Scene> scenes;
 	private Vector<Event> events;
-	private Vector<Item> items;
+//	private Vector<Item> items;
 	private Vector<Ctrl> ctrls;
 	
 	private Translator translator = new Translator();
 	
 	public World(){
 		player = new Player();
-		item = new EditableItem();
-		scene = new EditableScene();
-		scenes = new Vector<Scene>();
+		itemTab = new ItemTab();
+		sceneTab = new SceneTab();
+//		scenes = new Vector<Scene>();
 		events = new Vector<Event>();
-		items = new Vector<Item>();
+//		items = new Vector<Item>();
 		ctrls = new Vector<Ctrl>();
 	}
 
@@ -34,20 +34,20 @@ public class World {
 //	}
 	
 	@Row(0) @Column(0)
-	public EditableItem getItem(){
-		return item;
+	public ItemTab getItem(){
+		return itemTab;
 	}
 	
 	@Row(1) @Column(0)
-	public Vector<Item> getItems() {
-		return items;
-	}
+//	public Vector<Item> getItems() {
+//		return itemTab.getItems();
+//	}
 	
 	public void addItem(Item item){
 		item = (Item) item;
 		//Check to make sure world does not already contain the item
-		if(!items.contains(item)){
-			items.add(item);
+		if(!itemTab.getItems().contains(item)){
+			itemTab.getItems().add(item);
 		}
 		else
 			System.out.println("World already contains "+item.getId());
@@ -57,34 +57,33 @@ public class World {
 		int i=0;
 		//Search for first occurrence of "item" and removes it from vector. We are guaranteed a single occurrence of
 		//an item by addItem(Item)
-		while(!items.get(i).getId().equalsIgnoreCase(item.getId())){
+		while(!itemTab.getItems().get(i).getId().equalsIgnoreCase(item.getId())){
 			i++;
-			if(i==items.size()){
+			if(i==itemTab.getItems().size()){
 				System.out.println("Item "+item.getId()+" was not found.");
 				return;
 			}
 		}
-		items.remove(item);
+		itemTab.getItems().remove(item);
 	}
 	
 	public Item editItem(int i){
-		return items.get(i-1);
+		return itemTab.getItems().get(i-1);
 	}
 
 	@Row(0) @Column(1)
-	public EditableScene getScene(){
-		return scene;
+	public SceneTab getScene(){
+		return sceneTab;
 	}
 	
-	@Row(2) @Column(0)
-	public Vector<Scene> getScenes() {
-		return scenes;
-	}
-	
+//	public Vector<Scene> getScenes() {
+//		return scenes;
+//	}
+//	
 	public void addScene(Scene scene){
 		//Check to make sure world does not already contain the scene
-		if(!scenes.contains(scene)){
-			scenes.add(scene);
+		if(!sceneTab.getScenes().contains(scene)){
+			sceneTab.getScenes().add(scene);
 		}
 		else
 			System.out.println("World already contains "+scene.getId());
@@ -94,18 +93,18 @@ public class World {
 		int i=0;
 		//Search for first occurrence of "scene" and removes it from vector. We are guaranteed a single occurrence of
 		//a scene by addScene(Scene)
-		while(!scenes.get(i).getId().equalsIgnoreCase(scene.getId())){
+		while(!sceneTab.getScenes().get(i).getId().equalsIgnoreCase(scene.getId())){
 			i++;
-			if(i==scenes.size()){
+			if(i==sceneTab.getScenes().size()){
 				System.out.println("Scene "+scene.getId()+" was not found.");
 				return;
 			}
 		}
-		scenes.remove(scene);
+		sceneTab.getScenes().remove(scene);
 	}
 	
 	public Scene editScene(int i){
-		return scenes.get(i-1);
+		return sceneTab.getScenes().get(i-1);
 	}
 
 	@Row(3) @Column(0)
