@@ -4,20 +4,18 @@ import java.util.Iterator;
 import java.util.Vector;
 
 public class Event extends AbstractObject implements ObjectInterface{
-	//TODO: Populate this class
-	private String type;
-	private String id;
 	
-	private Vector<String> ons;
-	private Vector<Exec> execs;
-	private Vector<Report> reports;
+	protected String type;
+	protected String id;
 	
-	public Event(String id, Vector<String> ons, Vector<Exec> execs, Vector<Report> reports){
+	public Event(){
+		type = "event";
+		id = "";
+	}
+	
+	public Event(String id){
 		type = "event";
 		this.id = id;
-		this.ons = ons;
-		this.execs = execs;
-		this.reports = reports;
 	}
 
 	public String getType() {
@@ -28,10 +26,13 @@ public class Event extends AbstractObject implements ObjectInterface{
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
 
+	
+	
+	/*
+	
+	
+	
 	public Vector<String> getOn() {
 		return ons;
 	}
@@ -121,6 +122,6 @@ public class Event extends AbstractObject implements ObjectInterface{
 //	public boolean hasItem(Item item){
 //		return items.contains(item);
 //	}
-
+*/
 
 }

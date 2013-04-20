@@ -41,8 +41,9 @@ public class SceneTab {
 		scene.getAdjoins().clear();
 	}
 	
+	//BEGIN ADD, REMOVE, AND EDIT METHODS FOR VECTOR<SCENE> scenes
 	
-	@Row(1) @Column(0) @Explanation("Press to add Scene to Item list")
+	@Row(1) @Column(0) @Explanation("Press to add Scene to Item list.")
 	public void addScene(){
 		Scene toBeAdded = new Scene(scene.getId(), scene.getVisualName(), scene.getVisualDescription(), scene.getVisualBackdrop(),
 				scene.getAuralName(), scene.getAuralDescription(), scene.getAuralBackdrop(), scene.getItems(), scene.getAdjoins(),
@@ -75,7 +76,7 @@ public class SceneTab {
 		scenes.remove(scenes.get(i));
 	}
 	
-	@Row(1) @Column(2)
+	@Row(1) @Column(2) @Explanation("Enter list number of a Scene to edit it.")
 	public void editScene(int i){
 		
 		if(i<=0){
@@ -109,4 +110,6 @@ public class SceneTab {
 		}
 		
 	}
+	
+	//END ADD, REMOVE, AND EDIT METHODS FOR VECTOR<SCENE> scenes
 }

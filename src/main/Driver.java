@@ -13,12 +13,16 @@ public class Driver {
 		
 		ObjectEditor.setPropertyAttribute(ItemTab.class, "Items", AttributeNames.SCROLLED, true);
 		ObjectEditor.setPropertyAttribute(ItemTab.class, "Items", AttributeNames.CONTAINER_WIDTH, 1000);
-		ObjectEditor.setPropertyAttribute(ItemTab.class, "Items", AttributeNames.CONTAINER_HEIGHT, 100);
+//		ObjectEditor.setPropertyAttribute(ItemTab.class, "Items", AttributeNames.CONTAINER_HEIGHT, 100);
 		
 		ObjectEditor.setPropertyAttribute(SceneTab.class, "Scenes", AttributeNames.SCROLLED, true);
 		ObjectEditor.setPropertyAttribute(SceneTab.class, "Scenes", AttributeNames.CONTAINER_WIDTH, 1000);
-		ObjectEditor.setPropertyAttribute(SceneTab.class, "Scenes", AttributeNames.CONTAINER_HEIGHT, 100);
+//		ObjectEditor.setPropertyAttribute(SceneTab.class, "Scenes", AttributeNames.CONTAINER_HEIGHT, 100);
 //		
+		ObjectEditor.setPropertyAttribute(EditableScene.class, "Items", AttributeNames.SCROLLED, true);
+		ObjectEditor.setPropertyAttribute(EditableScene.class, "Items", AttributeNames.CONTAINER_WIDTH, 150);
+//		ObjectEditor.setPropertyAttribute(EditableScene.class, "Items", AttributeNames.CONTAINER_HEIGHT, 100);
+		
 //		ObjectEditor.setPropertyAttribute(World.class, "Events", AttributeNames.SCROLLED, true);
 //		ObjectEditor.setPropertyAttribute(World.class, "Events", AttributeNames.CONTAINER_WIDTH, 1000);
 //		ObjectEditor.setPropertyAttribute(World.class, "Events", AttributeNames.CONTAINER_HEIGHT, 100);

@@ -6,18 +6,18 @@ import util.annotations.Column;
 import util.annotations.Row;
 import util.annotations.StructurePattern;
 
-//Wrapper class for EditableItem+Vector<Item>
+//Wrapper class for EditableEvent+Vector<Event>
 @StructurePattern("Bean Pattern")
-public class ItemTab {
+public class EventTab {
+
+	private EditableEvent event;
+	private Vector<Event> events;
 	
-	private EditableItem item;
-	private Vector<Item> items;
-	
-	public ItemTab(){
+	public EventTab(){
 		item = new EditableItem();
 		items = new Vector<Item>();
 	}
-	
+		
 	@Row(0) @Column(0)
 	public EditableItem getItem(){
 		return item;
@@ -95,6 +95,5 @@ public class ItemTab {
 		item.setUseable(it.getUseable());
 		item.setTakeable(it.getTakeable());
 	}
-
-	//END ADD, REMOVE, AND EDIT METHODS FOR VECTOR<ITEM> items
+		//END ADD, REMOVE, AND EDIT METHODS FOR VECTOR<ITEM> items
 }
