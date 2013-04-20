@@ -136,18 +136,26 @@ public class World {
 	
 		translator.initialize(writer);
 		Iterator<Item> itemItr = itemTab.getItems().iterator();
-		
+		if(itemItr.hasNext()){
+			writer.printf(",\r\n");
+		}
 		while(itemItr.hasNext()){
 			translator.itemTranslate(writer, itemItr.next());
+			if(itemItr.hasNext()){
+				writer.printf(",\r\n");
+			}
 		}
 		
 		Iterator<Scene> sceneItr = sceneTab.getScenes().iterator();
-		
+		if(sceneItr.hasNext()){
+			writer.printf(",\r\n");
+		}
 		while(sceneItr.hasNext()){
 			translator.sceneTranslate(writer, sceneItr.next());
+			if(sceneItr.hasNext()){
+				writer.printf(",\r\n");
+			}
 		}
-		
-		
 	}
 	
 }

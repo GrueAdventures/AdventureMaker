@@ -402,6 +402,21 @@ public class Translator {
 				"        ]\r\n" + 
 				"    }," +
 				"    {\r\n" + 
+				"        \"visual\": {\r\n" + 
+				"            \"name\": \"Journal\",\r\n" + 
+				"            \"description\": \"It's a journal. To save your game, use it.\"\r\n" + 
+				"        },\r\n" + 
+				"        \"aural\": {\r\n" + 
+				"            \"name\": \"sound://speech/journal\",\r\n" + 
+				"            \"description\": \"sound://speech/journalDesc\"\r\n" + 
+				"        },\r\n" + 
+				"        \"type\": \"item\",\r\n" + 
+				"        \"id\": \"journal\",\r\n" + 
+				"        \"properties\": [\r\n" + 
+				"            \"useable\"\r\n" + 
+				"        ]\r\n" + 
+				"    }, " +
+				"    {\r\n" + 
 				"        \"comment\": \"save\",\r\n" + 
 				"        \"on\": [\r\n" + 
 				"            \"use\",\r\n" + 
@@ -415,8 +430,8 @@ public class Translator {
 				"                    \"dim/controllers/meta/save\"\r\n" + 
 				"                ]\r\n" + 
 				"            }\r\n" + 
-				"        ]\r\n" + 
-				"    }, ");
+				"        ]\r\n");
+		writer.printf("    }");
 	}
 	
 	public void moveEventTranslate(PrintWriter writer, MoveEvent event){
@@ -442,8 +457,8 @@ public class Translator {
 				"                    \""+event.getAurMoveDesc()+"\"\r\n" + 
 				"                ]\r\n" + 
 				"            }\r\n" + 
-				"        ]\r\n" + 
-				"    },");
+				"        ]\r\n"); 
+		writer.printf("    }");
 	}
 	
 	public void takeEventTranslate(PrintWriter writer, TakeEvent event){
@@ -461,8 +476,8 @@ public class Translator {
 				"                    \"useable\"\r\n" + 
 				"                ]\r\n" + 
 				"            }\r\n" + 
-				"        ]\r\n" + 
-				"    }, ");
+				"        ]\r\n");
+		writer.printf("    }");
 	}
 	
 	public void itemTranslate(PrintWriter writer, Item item){
@@ -488,7 +503,7 @@ public class Translator {
 			writer.printf("\n");
 			if(!propItr.hasNext()) writer.printf("        ]\n");
 		}
-		writer.println("    },");
+		writer.printf("    }");
 	}
 	
 	public void useEventTranslate(PrintWriter writer, UseEvent event){
@@ -528,8 +543,8 @@ public class Translator {
 				"                    \""+event.getUpon().getId()+"\"\r\n" + 
 				"                ]\r\n" + 
 				"            }\r\n" + 
-				"        ]\r\n" + 
-				"    }");
+				"        ]\r\n"); 
+		writer.printf("    }");
 	}
 
 	public void sceneTranslate(PrintWriter writer, Scene scene){
@@ -567,8 +582,8 @@ public class Translator {
 				"            \"description\": \""+scene.getAuralDescription()+"\"\r\n" + 
 				"        },\r\n" + 
 				"        \"type\": \""+scene.getType()+"\",\r\n" + 
-				"        \"id\": \""+scene.getId()+"\"\r\n" + 
-				"    }, ");
+				"        \"id\": \""+scene.getId()+"\"\r\n"); 
+		writer.printf("    }");
 	}
 
 	public void saveTranslate(PrintWriter writer) {
@@ -586,8 +601,8 @@ public class Translator {
 				"                    \"dim/controllers/meta/save\"\r\n" + 
 				"                ]\r\n" + 
 				"            }\r\n" + 
-				"        ]\r\n" + 
-				"    }, ");
+				"        ]\r\n"); 
+		writer.printf("    }");
 		
 	}
 
