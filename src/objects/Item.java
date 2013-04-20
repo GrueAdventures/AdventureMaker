@@ -1,5 +1,6 @@
 package objects;
 
+import util.Explanation;
 import util.annotations.Column;
 import util.annotations.Row;
 import util.annotations.Visible;
@@ -32,15 +33,16 @@ public class Item extends AbstractObject implements ObjectInterface{
 //		properties = new Vector<String>();
 	}
 	
-//	public Item(String id, String visName, String visDesc, String aurName, String aurDesc, Vector<String> props){
-//		type = "item";
-//		this.id = id;
-//		visualName = visName;
-//		visualDescription = visDesc;
-//		auralName = aurName;
-//		auralDescription = aurDesc;
-//		properties = props;
-//	}
+	public Item(String id, String visName, String visDesc, String aurName, String aurDesc, boolean use, boolean take){
+		type = "item";
+		this.id = id;
+		visualName = visName;
+		visualDescription = visDesc;
+		auralName = aurName;
+		auralDescription = aurDesc;
+		useable = use;
+		takeable = take;
+	}
 
 // constructor for creating an Item with only an ID.
 // I don't know if this is necessary.
@@ -85,7 +87,7 @@ public class Item extends AbstractObject implements ObjectInterface{
 	}
 	
 	
-	@Row(0)  @Column(0)
+	@Row(0)  @Column(0) @Explanation("Id of Item")
 	public String getId() {
 		return id;
 	}

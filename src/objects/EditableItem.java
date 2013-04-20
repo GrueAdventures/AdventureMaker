@@ -1,11 +1,13 @@
 package objects;
 
+
 import util.annotations.Column;
+import util.annotations.Explanation;
 import util.annotations.Row;
 
 public class EditableItem extends Item{
 	
-	@Row(0) @Column(1)
+	@Row(0) @Column(1) @Explanation("Id of Item")
 	public void setId(String id){
 		this.id = id;
 	}
