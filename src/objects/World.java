@@ -13,9 +13,7 @@ public class World {
 	private Player player;
 	private ItemTab itemTab;
 	private SceneTab sceneTab;
-//	private Vector<Scene> scenes;
 	private Vector<Event> events;
-//	private Vector<Item> items;
 	private Vector<Ctrl> ctrls;
 	
 	private Translator translator = new Translator();

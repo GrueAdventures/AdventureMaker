@@ -46,16 +46,17 @@ public class Item extends AbstractObject implements ObjectInterface{
 
 // constructor for creating an Item with only an ID.
 // I don't know if this is necessary.
-//	public Item(String id){
-//		type = "item";
-//		this.id = id;
-//		visualName = "";
-//		visualDescription = "";
-//		auralName = "";
-//		auralDescription = "";
-//		properties = new Vector<String>();
-//		
-//	}
+	public Item(String id){
+		type = "item";
+		this.id = id;
+			visualName = "";
+		visualDescription = "";
+		auralName = "";
+		auralDescription = "";
+		useable = false;
+		takeable = false;
+			
+	}
 
 //	public void addProperty(String property){
 //		//Check to make sure scene does not already contain the item

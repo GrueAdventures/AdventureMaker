@@ -6,7 +6,6 @@ import java.util.Iterator;
 public class Translator {
 	
 	public void initialize(PrintWriter writer){
-		
 		writer.println("    {\r\n" + 
 				"        \"items\": [],\r\n" + 
 				"        \"type\": \"player\",\r\n" + 
