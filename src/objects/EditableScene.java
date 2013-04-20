@@ -2,7 +2,9 @@ package objects;
 
 import util.annotations.Column;
 import util.annotations.Row;
+import util.annotations.StructurePattern;
 
+@StructurePattern("Bean Pattern")
 public class EditableScene extends Scene {
 	
 	@Row(0) @Column(1)
@@ -62,6 +64,10 @@ public class EditableScene extends Scene {
 		int i=0;
 		//Search for first occurrence of "item" and removes it from array. We are guaranteed a single occurrence of
 		//an item by addItem(String)
+		if(i==items.size()){
+			System.out.println("Item "+item+" was not found.");
+			return;
+		}
 		while(!items.get(i).equalsIgnoreCase(item)){
 			i++;
 			if(i==items.size()){
@@ -87,10 +93,14 @@ public class EditableScene extends Scene {
 		int i=0;
 		//Search for first occurrence of "item" and removes it from array. We are guaranteed a single occurrence of
 		//an item by addItem(String)
+		if(i==adjoins.size()){
+			System.out.println("Scene "+scene+" was not found.");
+			return;
+		}
 		while(!adjoins.get(i).equalsIgnoreCase(scene)){
 			i++;
 			if(i==adjoins.size()){
-				System.out.println("Item "+scene+" was not found.");
+				System.out.println("Scene "+scene+" was not found.");
 				return;
 			}
 		}

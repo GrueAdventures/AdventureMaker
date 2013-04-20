@@ -4,8 +4,10 @@ import java.util.Vector;
 
 import util.annotations.Column;
 import util.annotations.Row;
+import util.annotations.StructurePattern;
 
 //Wrapper class for EditableItem+Vector<Item>
+@StructurePattern("Bean Pattern")
 public class ItemTab {
 	
 	private EditableItem item;
@@ -41,21 +43,37 @@ public class ItemTab {
 	@Row(1) @Column(1)
 	public void removeItem(String id){
 		int i=0;
+		if(i==items.size()){
+			System.out.println("Item "+id+" was not found.");
+			return;
+		}
 		//Search for first occurrence of "item" and removes it from vector. We are guaranteed a single occurrence of
 		//an item by addItem(Item)
-		while(items.get(i).getId().equalsIgnoreCase(id)){
+		while(!items.get(i).getId().equalsIgnoreCase(id)){
 			i++;
 			if(i==items.size()){
 				System.out.println("Item "+id+" was not found.");
 				return;
 			}
 		}
-		items.remove(item);
+		items.remove(items.get(i));
 	}
 	
 	@Row(1) @Column(2)	
 	public void editItem(int i){
+		
+		if(i<=0){
+			System.out.println("Must enter a positive value!");
+			return;
+		}
+		
+		if(i>items.size()){
+			System.out.println("Value is out of range!");
+			return;
+		}
+		
 		Item it = items.get(i-1);
+		items.remove(items.get(i-1));
 		item.setId(it.getId());
 		item.setVisualName(it.getVisualName());
 		item.setVisualDescription(it.getVisualDescription());

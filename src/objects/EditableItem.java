@@ -4,7 +4,9 @@ package objects;
 import util.annotations.Column;
 import util.annotations.Explanation;
 import util.annotations.Row;
+import util.annotations.StructurePattern;
 
+@StructurePattern("Bean Pattern")
 public class EditableItem extends Item{
 	
 	@Row(0) @Column(1) @Explanation("Id of Item")
@@ -41,15 +43,15 @@ public class EditableItem extends Item{
 	public void setTakeable(boolean takeable){
 		this.takeable = takeable;
 	}
-	
-	@Row(7)	@Column(8)
-	public void save(){
-		System.out.println("Added");
-	}
-	
-	@Row(7) @Column(1)
-	public void load(){
-		System.out.println("Loaded");
-	}
+//	
+//	@Row(7)	@Column(8)
+//	public void save(){
+//		System.out.println("Added");
+//	}
+//	
+//	@Row(7) @Column(1)
+//	public void load(){
+//		System.out.println("Loaded");
+//	}
 	
 }

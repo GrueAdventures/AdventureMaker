@@ -52,21 +52,20 @@ public class Scene implements ObjectInterface{
 //		adjoins = new Vector<Scene>();	
 //	}
 //	
-//	public Scene(String id, String vName, String vDescription, String vBackdrop,
-//			String aName, String aDescription, String aBackdrop, Ctrl controller){
-//		type = "scene";
-//		this.id = id;
-//		visualName = vName;
-//		visualDescription = vDescription;
-//		visualBackdrop = vBackdrop;
-//		auralName = aName;
-//		auralDescription = aDescription;
-//		auralBackdrop = aBackdrop;
-//		this.controller = controller;
-//		items = new Vector<Item>();
-//		adjoins = new Vector<Scene>();
-//		
-//	}
+	public Scene(String id, String vName, String vDescription, String vBackdrop,
+			String aName, String aDescription, String aBackdrop, Vector<String> items, Vector<String> adj, Ctrl controller){
+		type = "scene";
+		this.id = id;
+		visualName = vName;
+		visualDescription = vDescription;
+		visualBackdrop = vBackdrop;
+		auralName = aName;
+		auralDescription = aDescription;
+		auralBackdrop = aBackdrop;
+		this.controller = controller;
+		this.items = items;
+		adjoins = adj;		
+	}
 	
 	//Constructor without Ctrl variable
 //	public Scene(String id, String vName, String vDescription, String vBackdrop,
