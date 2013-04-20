@@ -55,14 +55,14 @@ public class WorldTest {
 		outside.setVisualDescription("You are outside.");
 		outside.setAuralBackdrop("sound://music/music2");
 		
-		lock.setVisualName("Lock");
-		lock.setVisualDescription("It is a lock on a door.");
-		lock.getProperties().add("useable");
+		testWorld.getScene().
 		
 		testWorld.getItem().getItems().add(lock);
 		testWorld.getItem().editItem(2);
 		testWorld.getItem().getItem().setVisualDescription("It is a lock on a door.");
-		testWorld.getItem().getItem().
+		testWorld.getItem().getItem().setVisualName("Lock");
+		testWorld.getItem().getItem().setUseable(true);
+		
 		
 		crowbar.setVisualName("Crowbar");
 		crowbar.setVisualDescription("It's a crowbar, perfect for unlocking things.");
