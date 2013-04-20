@@ -1,6 +1,5 @@
 package objects;
 
-import java.io.File;
 import java.io.PrintWriter;
 import java.util.Iterator;
 
@@ -13,7 +12,7 @@ public class Translator {
 				"        \"type\": \"player\",\r\n" + 
 				"        \"id\": \"player\",\r\n" + 
 				"        \"scene\": \"boot\"\r\n" + 
-				"    }, " +
+				"    },\r\n" +
 				"    {\r\n" + 
 				"        \"items\": [],\r\n" + 
 				"        \"controller\": \"dim/controllers/meta/boot\",\r\n" + 
@@ -27,7 +26,7 @@ public class Translator {
 				"        },\r\n" + 
 				"        \"type\": \"scene\",\r\n" + 
 				"        \"id\": \"boot\"\r\n" + 
-				"    }, " +
+				"    },\r\n" +
 				"    {\r\n" + 
 				"        \"scene\": \"testRoom\",\r\n" + //Needs to reflect gameInfo
 				"        \"channels\": {\r\n" + 
@@ -55,7 +54,7 @@ public class Translator {
 				"            \"backdrop\": {\r\n" + 
 				"                \"type\": \"visual\"\r\n" + 
 				"            }\r\n" + 
-				"        }, " +
+				"        },\r\n" +
 				"        \"controller\": \"dim/controllers/explore/explore\",\r\n" + 
 				"        \"type\": \"default\",\r\n" + 
 				"        \"id\": \"default\",\r\n" + 
@@ -73,25 +72,7 @@ public class Translator {
 				"                }\r\n" + 
 				"            ]\r\n" + 
 				"        }\r\n" + 
-				"    }," +
-		        "    controller\": \"dim/controllers/explore/explore\",\r\n" + 
-				"        \"type\": \"default\",\r\n" + 
-				"        \"id\": \"default\",\r\n" + 
-				"        \"objectReport\": {\r\n" + 
-				"            \"user.activate\": [\r\n" + 
-				"                {\r\n" + 
-				"                    \"visual.name\": \"title\"\r\n" + 
-				"                }\r\n" + 
-				"            ],\r\n" + 
-				"            \"user.select\": [\r\n" + 
-				"                {\r\n" + 
-				"                    \"aural.name\": \"narration\",\r\n" + 
-				"                    \"aural.sound\": \"sound\",\r\n" + 
-				"                    \"visual.name\": \"title\"\r\n" + 
-				"                }\r\n" + 
-				"            ]\r\n" + 
-				"        }\r\n" + 
-				"    }, " +
+				"    },\r\n" +
 				"    {\r\n" + 
 				"        \"prompt\": [\r\n" + 
 				"            {\r\n" + 
@@ -121,7 +102,7 @@ public class Translator {
 				"                \"id\": \"new\"\r\n" + 
 				"            }\r\n" + 
 				"        ]\r\n" + 
-				"    }," + 
+				"    },\r\n" + 
 				"    {\r\n" + 
 				"        \"prompt\": [\r\n" + 
 				"            {\r\n" + 
@@ -423,7 +404,8 @@ public class Translator {
 	}
 	
 	public void moveEventTranslate(PrintWriter writer, MoveEvent event){
-		writer.println("        \"priority\": -1,\r\n" + 
+		writer.println("    {\r\n" +
+				"        \"priority\": -1,\r\n" + 
 				"        \"on\": [\r\n" + 
 				"            \"move\",\r\n" + 
 				"            \""+event.getScene().getId()+"\"\r\n" + 
@@ -459,7 +441,7 @@ public class Translator {
 				"            {\r\n" + 
 				"                \"action\": \"append\",\r\n" + 
 				"                \"args\": [\r\n" + 
-				"                    \"item."+event.getItem().getId()+".properties\",\r\n" + 
+				"                    \"item."+"lock"+".properties\",\r\n" + 
 				"                    \"useable\"\r\n" + 
 				"                ]\r\n" + 
 				"            }\r\n" + 
@@ -485,7 +467,7 @@ public class Translator {
 		if(propItr.hasNext()) writer.printf("\n");
 		else writer.printf("]\n");
 		while(propItr.hasNext()){
-			writer.printf("        "+propItr.next());
+			writer.printf("        \""+propItr.next()+"\"");
 			if(propItr.hasNext()) writer.printf(",");
 			writer.printf("\n");
 			if(!propItr.hasNext()) writer.printf("        ]\n");
@@ -541,7 +523,7 @@ public class Translator {
 		Iterator<Item> itemsItr = scene.getItems().iterator();
 		if (itemsItr.hasNext()) writer.printf("\n");
 		while(itemsItr.hasNext()){
-			writer.printf("        "+itemsItr.next().getId());
+			writer.printf("        \""+itemsItr.next().getId()+"\"");
 			if(itemsItr.hasNext()) writer.printf(",");
 			writer.printf("\n");	
 		}
@@ -553,7 +535,7 @@ public class Translator {
 		Iterator<Scene> adjoinItr = scene.getAdjoins().iterator();
 		if (adjoinItr.hasNext())  writer.printf("\n");
 		while (adjoinItr.hasNext()){
-			writer.printf("        "+adjoinItr.next().getId());
+			writer.printf("        \""+adjoinItr.next().getId()+"\"");
 			if(adjoinItr.hasNext()) writer.printf(",");
 			writer.printf("\n");
 		}
@@ -561,7 +543,7 @@ public class Translator {
 		
 		writer.println("        \"visual\": {\r\n" + 
 				"            \"name\": \""+scene.getVisualName()+"\",\r\n" + 
-				"            \"description\": \""+scene.getVisualDescription()+"\\nThere is a lock on the door.\"\r\n" + 
+				"            \"description\": \""+scene.getVisualDescription()+"\"\r\n" + 
 				"        },\r\n" + 
 				"        \"aural\": {\r\n" + 
 				"            \"name\": \""+scene.getAuralName()+"\",\r\n" + 
@@ -571,6 +553,26 @@ public class Translator {
 				"        \"type\": \""+scene.getType()+"\",\r\n" + 
 				"        \"id\": \""+scene.getId()+"\"\r\n" + 
 				"    }, ");
+	}
+
+	public void saveTranslate(PrintWriter writer) {
+		writer.println("    {\r\n" + 
+				"        \"comment\": \"save\",\r\n" + 
+				"        \"on\": [\r\n" + 
+				"            \"use\",\r\n" + 
+				"            \"journal\"\r\n" + 
+				"        ],\r\n" + 
+				"        \"type\": \"event\",\r\n" + 
+				"        \"exec\": [\r\n" + 
+				"            {\r\n" + 
+				"                \"action\": \"activate\",\r\n" + 
+				"                \"args\": [\r\n" + 
+				"                    \"dim/controllers/meta/save\"\r\n" + 
+				"                ]\r\n" + 
+				"            }\r\n" + 
+				"        ]\r\n" + 
+				"    }, ");
+		
 	}
 
 }
