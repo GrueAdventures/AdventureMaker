@@ -1,15 +1,14 @@
 package objects;
 
-
-import util.annotations.Column;
 import util.annotations.Explanation;
+import util.annotations.Column;
 import util.annotations.Row;
 import util.annotations.StructurePattern;
 
 @StructurePattern("Bean Pattern")
 public class EditableItem extends Item{
 	
-	@Row(0) @Column(1) @Explanation("Id of Item")
+	@Row(0) @Column(1)
 	public void setId(String id){
 		this.id = id;
 	}

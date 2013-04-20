@@ -1,7 +1,7 @@
 package objects;
 
 import java.util.Vector;
-
+import util.annotations.Explanation;
 import util.annotations.Column;
 import util.annotations.Row;
 import util.annotations.StructurePattern;
@@ -28,19 +28,32 @@ public class ItemTab {
 		return items;
 	}
 	
-	@Row(1) @Column(0)
+	private void clear(){
+		item.setId("");
+		item.setVisualName("");
+		item.setVisualDescription("");
+		item.setAuralName("");
+		item.setAuralDescription("");
+		item.setTakeable(false);
+		item.setUseable(false);
+	}
+	
+	//BEGIN ADD, REMOVE, AND EDIT METHODS FOR VECTOR<ITEM> items
+	
+	@Row(1) @Column(0) @Explanation("Press to add Item to Item list")
 	public void addItem(){
 		Item toBeAdded =  new Item(item.getId(), item.getVisualName(), item.getVisualDescription(),
 				item.getAuralName(), item.getAuralName(), item.getUseable(), item.getTakeable());
 		//Check to make sure world does not already contain the item
 		if(!items.contains(toBeAdded)){
 			items.add(toBeAdded);
+			clear();
 		}
 		else
 			System.out.println("World already contains "+toBeAdded.getId());
 	}
 	
-	@Row(1) @Column(1)
+	@Row(1) @Column(1) @Explanation("Input an Item id to remove it from the list.")
 	public void removeItem(String id){
 		int i=0;
 		if(i==items.size()){
@@ -59,7 +72,7 @@ public class ItemTab {
 		items.remove(items.get(i));
 	}
 	
-	@Row(1) @Column(2)	
+	@Row(1) @Column(2)	@Explanation("Id of Item")
 	public void editItem(int i){
 		
 		if(i<=0){
@@ -83,4 +96,5 @@ public class ItemTab {
 		item.setTakeable(it.getTakeable());
 	}
 
+	//END ADD, REMOVE, AND EDIT METHODS FOR VECTOR<ITEM> items
 }

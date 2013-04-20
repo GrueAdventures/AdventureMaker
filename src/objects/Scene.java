@@ -2,6 +2,7 @@ package objects;
 
 import java.util.Vector;
 
+import util.annotations.Explanation;
 import util.annotations.Column;
 import util.annotations.Row;
 import util.annotations.Visible;
@@ -72,42 +73,42 @@ public class Scene implements ObjectInterface{
 		return type;
 	}
 
-	@Row(0) @Column(0)
+	@Row(0) @Column(0) @Explanation("Id of Scene")
 	public String getId() {
 		return id;
 	}
 
-	@Row(1) @Column(0)
+	@Row(1) @Column(0) @Explanation("Name of Scene which shows on screen")
 	public String getVisualName() {
 		return visualName;
 	}
 
-	@Row(2) @Column(0)
+	@Row(2) @Column(0) @Explanation("Description of Scene which shows on screen")
 	public String getVisualDescription() {
 		return visualDescription;
 	}
 
-	@Row(3) @Column(0)
+	@Row(3) @Column(0) @Explanation("Relative path to image file for the backdrop of the Scene")
 	public String getVisualBackdrop() {
 		return visualBackdrop;
 	}
 
-	@Row(4) @Column(0)
+	@Row(4) @Column(0) @Explanation("Relative path to sound file which has the Name of Scene")
 	public String getAuralName() {
 		return auralName;
 	}
 
-	@Row(5) @Column(0)
+	@Row(5) @Column(0) @Explanation("Relative path to sound file which has the Description of Scene")
 	public String getAuralDescription() {
 		return auralDescription;
 	}
 
-	@Row(6) @Column(0)
+	@Row(6) @Column(0) @Explanation("Relative path to sound file which will be played as background on a loop")
 	public String getAuralBackdrop() {
 		return auralBackdrop;
 	}
 
-	@Row(7) @Column(0)
+	@Row(7) @Column(0) @Explanation("Coming soon!")
 	public Ctrl getController() {
 		return controller;
 	}

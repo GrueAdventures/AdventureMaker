@@ -1,6 +1,6 @@
 package objects;
 
-import util.Explanation;
+import util.annotations.Explanation;
 import util.annotations.Column;
 import util.annotations.Row;
 import util.annotations.Visible;
@@ -64,32 +64,32 @@ public class Item extends AbstractObject implements ObjectInterface{
 		return id;
 	}
 	
-	@Row(1) @Column(0)
+	@Row(1) @Column(0) @Explanation("Name of Item which shows on screen")
 	public String getVisualName() {
 		return visualName;
 	}
 
-	@Row(2) @Column(0)
+	@Row(2) @Column(0) @Explanation("Description of Item which shows on screen")
 	public String getVisualDescription() {
 		return visualDescription;
 	}
 
-	@Row(3) @Column(0)
+	@Row(3) @Column(0) @Explanation("Relative path to sound file which has the Name of Item")
 	public String getAuralName() {
 		return auralName;
 	}
 
-	@Row(4) @Column(0)
+	@Row(4) @Column(0) @Explanation("Relative path to sound file which has the Description of Item")
 	public String getAuralDescription() {
 		return auralDescription;
 	}
 
-	@Row(5) @Column(0)
+	@Row(5) @Column(0) @Explanation("Select to give Item the \"Useable\" property")
 	public boolean getUseable(){
 		return useable;
 	}
 	
-	@Row(6) @Column(0)
+	@Row(6) @Column(0) @Explanation("Select to give Item the \"Takeable\" property")
 	public boolean getTakeable(){
 		return takeable;
 	}
