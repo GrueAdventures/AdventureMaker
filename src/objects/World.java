@@ -3,6 +3,7 @@ package objects;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Iterator;
 import java.util.Vector;
 
 import util.annotations.Column;
@@ -132,15 +133,20 @@ public class World {
 	public void translate() throws FileNotFoundException{
 		File file = new File("test.json");
 		PrintWriter writer = new PrintWriter(file);
+	
+		translator.initialize(writer);
+		Iterator<Item> itemItr = itemTab.getItems().iterator();
 		
-		for(int i=0; i<items.size(); i++){
-			translator.itemTranslate(writer, items.get(i));
-			
+		while(itemItr.hasNext()){
+			translator.itemTranslate(writer, itemItr.next());
 		}
 		
-		for(int i=0; i<scenes.size(); i++){
-			translator.sceneTranslate(writer, scenes.get(i));
+		Iterator<Scene> sceneItr = sceneTab.getScenes().iterator();
+		
+		while(sceneItr.hasNext()){
+			translator.sceneTranslate(writer, sceneItr.next());
 		}
+		
 		
 	}
 	

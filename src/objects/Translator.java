@@ -400,7 +400,23 @@ public class Translator {
 				"                ]\r\n" + 
 				"            }\r\n" + 
 				"        ]\r\n" + 
-				"    },");
+				"    }," +
+				"    {\r\n" + 
+				"        \"comment\": \"save\",\r\n" + 
+				"        \"on\": [\r\n" + 
+				"            \"use\",\r\n" + 
+				"            \"journal\"\r\n" + 
+				"        ],\r\n" + 
+				"        \"type\": \"event\",\r\n" + 
+				"        \"exec\": [\r\n" + 
+				"            {\r\n" + 
+				"                \"action\": \"activate\",\r\n" + 
+				"                \"args\": [\r\n" + 
+				"                    \"dim/controllers/meta/save\"\r\n" + 
+				"                ]\r\n" + 
+				"            }\r\n" + 
+				"        ]\r\n" + 
+				"    }, ");
 	}
 	
 	public void moveEventTranslate(PrintWriter writer, MoveEvent event){
@@ -520,10 +536,10 @@ public class Translator {
 		writer.printf("    {\r\n" + 
 				"        \"items\": [");
 		
-		Iterator<Item> itemsItr = scene.getItems().iterator();
+		Iterator<String> itemsItr = scene.getItems().iterator();
 		if (itemsItr.hasNext()) writer.printf("\n");
 		while(itemsItr.hasNext()){
-			writer.printf("        \""+itemsItr.next().getId()+"\"");
+			writer.printf("        \""+itemsItr.next()+"\"");
 			if(itemsItr.hasNext()) writer.printf(",");
 			writer.printf("\n");	
 		}
@@ -532,10 +548,10 @@ public class Translator {
 		
 		writer.printf("        \"adjoins\": [");
 		
-		Iterator<Scene> adjoinItr = scene.getAdjoins().iterator();
+		Iterator<String> adjoinItr = scene.getAdjoins().iterator();
 		if (adjoinItr.hasNext())  writer.printf("\n");
 		while (adjoinItr.hasNext()){
-			writer.printf("        \""+adjoinItr.next().getId()+"\"");
+			writer.printf("        \""+adjoinItr.next()+"\"");
 			if(adjoinItr.hasNext()) writer.printf(",");
 			writer.printf("\n");
 		}
