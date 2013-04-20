@@ -28,10 +28,13 @@ public class WorldTest {
 		UseEvent crowbarToLock = new UseEvent("crowbarToLock", crowbar, lock);
 		MoveEvent moveTestRoom = new MoveEvent(testRoom);
 		
-		trees.setVisualName("Trees");
-		trees.setVisualDescription("It is a tree.  You hear birds.");
-		
 		testWorld.getItem().getItems().add(trees);
+		testWorld.getItem().editItem(1);
+		testWorld.getItem().getItem().setVisualName("Trees");
+		testWorld.getItem().getItem().setVisualDescription("It is a tree.  You hear birds.");
+		
+
+		
 		crowbarToLock.setReportDescription("SMASH.");
 		crowbarToLock.setReportNarration("");
 		crowbarToLock.setAdjoinScene(outside);
@@ -55,6 +58,11 @@ public class WorldTest {
 		lock.setVisualName("Lock");
 		lock.setVisualDescription("It is a lock on a door.");
 		lock.getProperties().add("useable");
+		
+		testWorld.getItem().getItems().add(lock);
+		testWorld.getItem().editItem(2);
+		testWorld.getItem().getItem().setVisualDescription("It is a lock on a door.");
+		testWorld.getItem().getItem().
 		
 		crowbar.setVisualName("Crowbar");
 		crowbar.setVisualDescription("It's a crowbar, perfect for unlocking things.");
