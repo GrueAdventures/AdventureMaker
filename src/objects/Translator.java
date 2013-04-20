@@ -2,6 +2,7 @@ package objects;
 
 import java.io.PrintWriter;
 import java.util.Iterator;
+import java.util.Vector;
 
 public class Translator {
 	
@@ -399,7 +400,7 @@ public class Translator {
 				"                ]\r\n" + 
 				"            }\r\n" + 
 				"        ]\r\n" + 
-				"    }," +
+				"    },\r\n" +
 				"    {\r\n" + 
 				"        \"visual\": {\r\n" + 
 				"            \"name\": \"Journal\",\r\n" + 
@@ -414,7 +415,7 @@ public class Translator {
 				"        \"properties\": [\r\n" + 
 				"            \"useable\"\r\n" + 
 				"        ]\r\n" + 
-				"    }, " +
+				"    },\r\n" +
 				"    {\r\n" + 
 				"        \"comment\": \"save\",\r\n" + 
 				"        \"on\": [\r\n" + 
@@ -429,7 +430,7 @@ public class Translator {
 				"                    \"dim/controllers/meta/save\"\r\n" + 
 				"                ]\r\n" + 
 				"            }\r\n" + 
-				"        ]\r\n");
+				"        ]");
 		writer.printf("    }");
 	}
 	
@@ -493,7 +494,18 @@ public class Translator {
 				"        \"id\": \""+item.getId()+"\",\r\n");
 		writer.printf("        \"properties\": [");
 		
-		Iterator<String> propItr = item.getProperties().iterator();
+
+		Vector<String> properties = new Vector<String>();
+		
+		if (item.getUseable()){
+			properties.add("useable");
+		}
+		if (item.getTakeable()){
+			properties.add("takeable");
+		}
+		
+		Iterator<String> propItr = properties.iterator();
+		
 		if(propItr.hasNext()) writer.printf("\n");
 		else writer.printf("]\n");
 		while(propItr.hasNext()){
@@ -581,7 +593,7 @@ public class Translator {
 				"            \"description\": \""+scene.getAuralDescription()+"\"\r\n" + 
 				"        },\r\n" + 
 				"        \"type\": \""+scene.getType()+"\",\r\n" + 
-				"        \"id\": \""+scene.getId()+"\"\r\n"); 
+				"        \"id\": \""+scene.getId()+"\""); 
 		writer.printf("    }");
 	}
 
