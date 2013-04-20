@@ -67,22 +67,6 @@ public class Scene implements ObjectInterface{
 		adjoins = adj;		
 	}
 	
-	//Constructor without Ctrl variable
-//	public Scene(String id, String vName, String vDescription, String vBackdrop,
-//			String aName, String aDescription, String aBackdrop){
-//		type = "scene";
-//		this.id = id;
-//		visualName = vName;
-//		visualDescription = vDescription;
-//		visualBackdrop = vBackdrop;
-//		auralName = aName;
-//		auralDescription = aDescription;
-//		auralBackdrop = aBackdrop;
-//		controller = null;
-//		items = new Vector<Item>();
-//		adjoins = new Vector<Scene>();
-//	}
-	
 	@Visible(false)
 	public String getType() {
 		return type;

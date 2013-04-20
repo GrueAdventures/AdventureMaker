@@ -43,15 +43,4 @@ public class EditableItem extends Item{
 	public void setTakeable(boolean takeable){
 		this.takeable = takeable;
 	}
-//	
-//	@Row(7)	@Column(8)
-//	public void save(){
-//		System.out.println("Added");
-//	}
-//	
-//	@Row(7) @Column(1)
-//	public void load(){
-//		System.out.println("Loaded");
-//	}
-	
 }

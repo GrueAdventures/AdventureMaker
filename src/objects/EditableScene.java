@@ -47,6 +47,8 @@ public class EditableScene extends Scene {
 		this.controller = controller;
 	}
 	
+	//BEGIN ADD AND REMOVE METHODS FOR VECTOR<STRING> items AND adjoins
+	
 	@Row(9) @Column(0)
 	public void addItem(String item){
 		//Check to make sure scene does not already contain the item
@@ -57,17 +59,17 @@ public class EditableScene extends Scene {
 			System.out.println(this.id+" already contains "+item);
 	}
 	
-	//This may have to be by ID
-	//We'll see how it goes
+
 	@Row(9) @Column(2)
 	public void removeItem(String item){
 		int i=0;
-		//Search for first occurrence of "item" and removes it from array. We are guaranteed a single occurrence of
-		//an item by addItem(String)
+		//Check to make sure within bounds
 		if(i==items.size()){
 			System.out.println("Item "+item+" was not found.");
 			return;
 		}
+		//Search for first occurrence of "item" and removes it from vector. We are guaranteed a single occurrence of
+		//an item by addItem(String)
 		while(!items.get(i).equalsIgnoreCase(item)){
 			i++;
 			if(i==items.size()){
@@ -91,12 +93,14 @@ public class EditableScene extends Scene {
 	@Row(11) @Column(2)
 	public void removeScene(String scene){
 		int i=0;
-		//Search for first occurrence of "item" and removes it from array. We are guaranteed a single occurrence of
-		//an item by addItem(String)
+		//Check to make sure within bounds
 		if(i==adjoins.size()){
 			System.out.println("Scene "+scene+" was not found.");
 			return;
 		}
+		
+		//Search for first occurrence of "scene" and removes it from vector. We are guaranteed a single occurrence of
+		//an item by addScene(String)
 		while(!adjoins.get(i).equalsIgnoreCase(scene)){
 			i++;
 			if(i==adjoins.size()){
@@ -106,5 +110,7 @@ public class EditableScene extends Scene {
 		}
 	adjoins.remove(scene);
 	}
+	
+	//END ADD AND REMOVE METHODS FOR VECTOR<STRING> items AND adjoins
 
 }

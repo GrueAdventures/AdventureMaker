@@ -19,8 +19,6 @@ public class Item extends AbstractObject implements ObjectInterface{
 	protected boolean useable;
 	protected boolean takeable;
 	
-//	private Vector<String> properties;
-	
 	public Item(){
 		type = "item";
 		id = "";
@@ -30,7 +28,6 @@ public class Item extends AbstractObject implements ObjectInterface{
 		auralDescription = "";
 		useable = false;
 		takeable = false;		
-//		properties = new Vector<String>();
 	}
 	
 	public Item(String id, String visName, String visDesc, String aurName, String aurDesc, boolean use, boolean take){
@@ -44,8 +41,7 @@ public class Item extends AbstractObject implements ObjectInterface{
 		takeable = take;
 	}
 
-// constructor for creating an Item with only an ID.
-// I don't know if this is necessary.
+	//Constructor for creating an Item with only an ID.
 	public Item(String id){
 		type = "item";
 		this.id = id;
@@ -57,37 +53,12 @@ public class Item extends AbstractObject implements ObjectInterface{
 		takeable = false;
 			
 	}
-
-//	public void addProperty(String property){
-//		//Check to make sure scene does not already contain the item
-//		if(!properties.contains(property)){
-//			properties.add(property);
-//		}
-//		else
-//			System.out.println(this.id+" already contains "+property);
-//	}
-//	
-//	//We'll do this for now, may change later
-//	public void removeProperty(String property){
-//		int i=0;
-//		//Search for first occurrence of "property" and removes it from array. We are guaranteed a single occurrence of
-//		//a property by addProperty(String)
-//		while(!properties.get(i).equalsIgnoreCase(property)){
-//			i++;
-//			if(i==properties.size()){
-//				System.out.println("Property "+property+" was not found.");
-//				return;
-//			}
-//		}
-//		properties.remove(property);
-//	}
 	
 	@Visible(false)
 	public String getType() {
 		return type;
 	}
-	
-	
+		
 	@Row(0)  @Column(0) @Explanation("Id of Item")
 	public String getId() {
 		return id;
@@ -122,6 +93,4 @@ public class Item extends AbstractObject implements ObjectInterface{
 	public boolean getTakeable(){
 		return takeable;
 	}
-
-	
 }
