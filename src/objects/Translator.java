@@ -7,7 +7,8 @@ import java.util.Vector;
 public class Translator {
 	
 	public void initialize(PrintWriter writer){
-		writer.println("    {\r\n" + 
+		writer.println("[\r\n" +
+				"    {\r\n" + 
 				"        \"items\": [],\r\n" + 
 				"        \"type\": \"player\",\r\n" + 
 				"        \"id\": \"player\",\r\n" + 
@@ -561,16 +562,23 @@ public class Translator {
 	public void sceneTranslate(PrintWriter writer, Scene scene){
 		writer.printf("    {\r\n" + 
 				"        \"items\": [");
-		
 		Iterator<String> itemsItr = scene.getItems().iterator();
 		if (itemsItr.hasNext()) writer.printf("\n");
+		else {
+			writer.printf("],\n");
+		}
 		while(itemsItr.hasNext()){
 			writer.printf("        \""+itemsItr.next()+"\"");
-			if(itemsItr.hasNext()) writer.printf(",");
-			writer.printf("\n");	
+			if(itemsItr.hasNext()){ 
+				writer.printf(",");
+			}
+			writer.printf("\n");
+			if(!itemsItr.hasNext()){
+				writer.printf("        ],\n");
+			}
 		}
 		
-		writer.printf("        ],\n");
+		
 		
 		writer.printf("        \"adjoins\": [");
 		
@@ -595,26 +603,6 @@ public class Translator {
 				"        \"type\": \""+scene.getType()+"\",\r\n" + 
 				"        \"id\": \""+scene.getId()+"\""); 
 		writer.printf("    }");
-	}
-
-	public void saveTranslate(PrintWriter writer) {
-		writer.println("    {\r\n" + 
-				"        \"comment\": \"save\",\r\n" + 
-				"        \"on\": [\r\n" + 
-				"            \"use\",\r\n" + 
-				"            \"journal\"\r\n" + 
-				"        ],\r\n" + 
-				"        \"type\": \"event\",\r\n" + 
-				"        \"exec\": [\r\n" + 
-				"            {\r\n" + 
-				"                \"action\": \"activate\",\r\n" + 
-				"                \"args\": [\r\n" + 
-				"                    \"dim/controllers/meta/save\"\r\n" + 
-				"                ]\r\n" + 
-				"            }\r\n" + 
-				"        ]\r\n"); 
-		writer.printf("    }");
-		
 	}
 
 }

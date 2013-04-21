@@ -38,45 +38,42 @@ public class WorldTest {
 //		
 //		moveTestRoom.setVisMoveDesc("You are in a test room");
 		
-		
-		testWorld.getScene().getScenes().add(outside);
-		testWorld.getScene().editScene(1);
-		testWorld.getScene().getScene().setVisualName("Outside");
-		testWorld.getScene().getScene().getAdjoins().add("testRoom");
-		testWorld.getScene().getScene().getItems().add("trees");
-		testWorld.getScene().getScene().setVisualDescription("You are outside.");
-		testWorld.getScene().getScene().setAuralBackdrop("sound://music/music2");
-		testWorld.getScene().addScene();
-		
-		testWorld.getScene().getScenes().add(testRoom);
-		testWorld.getScene().editScene(2);
-		testWorld.getScene().getScene().getItems().add("lock");
-		testWorld.getScene().getScene().getItems().add("crowbar");
-		testWorld.getScene().getScene().setVisualDescription("You find yourself in a test room.");
-		testWorld.getScene().getScene().setVisualName("Test Room");
-		testWorld.getScene().getScene().setAuralBackdrop("sound://music/music2");
-		testWorld.getScene().addScene();
-		
-		testWorld.getItem().getItems().add(trees);
-		testWorld.getItem().editItem(1);
+		testWorld.getItem().getItem().setId("trees");
 		testWorld.getItem().getItem().setVisualName("Trees");
 		testWorld.getItem().getItem().setVisualDescription("It is a tree.  You hear birds.");
 		testWorld.getItem().addItem();
 		
-		testWorld.getItem().getItems().add(lock);
-		testWorld.getItem().editItem(2);
+		testWorld.getItem().getItem().setId("lock");
 		testWorld.getItem().getItem().setVisualDescription("It is a lock on a door.");
 		testWorld.getItem().getItem().setVisualName("Lock");
 		testWorld.getItem().getItem().setUseable(true);
 		testWorld.getItem().addItem();
 		
-		testWorld.getItem().getItems().add(crowbar);
-		testWorld.getItem().editItem(3);
+		testWorld.getItem().getItem().setId("crowbar");
 		testWorld.getItem().getItem().setVisualName("Crowbar");
 		testWorld.getItem().getItem().setVisualDescription("It's a crowbar, perfect for unlocking things.");
 		testWorld.getItem().getItem().setTakeable(true);
 		testWorld.getItem().addItem();
+						
+
 		
+		testWorld.getScene().getScene().setId("outside");
+		testWorld.getScene().getScene().setVisualName("Outside");
+		testWorld.getScene().getScene().addScene("testRoom");
+		testWorld.getScene().getScene().addItem("trees");
+		testWorld.getScene().getScene().setVisualDescription("You are outside.");
+		testWorld.getScene().getScene().setAuralBackdrop("sound://music/music2");
+		testWorld.getScene().addScene();
+		
+
+		testWorld.getScene().getScene().addItem("lock");
+		testWorld.getScene().getScene().addItem("crowbar");
+		testWorld.getScene().getScene().setVisualDescription("You find yourself in a test room.");
+		testWorld.getScene().getScene().setVisualName("Test Room");
+		testWorld.getScene().getScene().setAuralBackdrop("sound://music/music2");
+		testWorld.getScene().addScene();
+		
+
 		testWorld.translate();
 		
 	}

@@ -44,10 +44,11 @@ public class SceneTab {
 	//BEGIN ADD, REMOVE, AND EDIT METHODS FOR VECTOR<SCENE> scenes
 	
 	@Row(1) @Column(0) @Explanation("Press to add Scene to Item list.")
-	public void addScene(){
+	public void addScene(){		
 		Scene toBeAdded = new Scene(scene.getId(), scene.getVisualName(), scene.getVisualDescription(), scene.getVisualBackdrop(),
-				scene.getAuralName(), scene.getAuralDescription(), scene.getAuralBackdrop(), scene.getItems(), scene.getAdjoins(),
+				scene.getAuralName(), scene.getAuralDescription(), scene.getAuralBackdrop(),(Vector<String>) scene.getItems().clone(), (Vector<String>) scene.getAdjoins().clone(),
 				scene.getController());
+		
 		//Check to make sure world does not already contain the scene
 		if(!scenes.contains(toBeAdded)){
 			scenes.add(toBeAdded);

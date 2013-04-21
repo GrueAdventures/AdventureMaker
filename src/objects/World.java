@@ -103,6 +103,8 @@ public class World {
 				writer.printf(",\r\n");
 			}
 		}
+		
+		writer.printf("\r\n]");
 		writer.close();
 	}
 	

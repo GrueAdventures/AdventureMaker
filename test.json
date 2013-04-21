@@ -1,3 +1,4 @@
+[
     {
         "items": [],
         "type": "player",
@@ -425,45 +426,85 @@
     },
     {
         "visual": {
-            "name": "sdfg",
-            "description": ""
+            "name": "Trees",
+            "description": "It is a tree.  You hear birds."
         },
         "aural": {
             "name": "",
             "description": ""
         },
         "type": "item",
-        "id": "sfdgsdfg",
+        "id": "trees",
 
         "properties": []
     },
     {
-        "items": [        ],
-        "adjoins": [],
         "visual": {
-            "name": "sdfg",
-            "description": "sdfg"
+            "name": "Lock",
+            "description": "It is a lock on a door."
         },
         "aural": {
             "name": "",
-            "backdrop": "",
             "description": ""
         },
-        "type": "scene",
-        "id": "sdfg"
+        "type": "item",
+        "id": "lock",
+
+        "properties": [
+        "useable"
+        ]
     },
     {
-        "items": [        ],
-        "adjoins": [],
         "visual": {
-            "name": "",
-            "description": "afdgsdf"
+            "name": "Crowbar",
+            "description": "It's a crowbar, perfect for unlocking things."
         },
         "aural": {
-            "name": "gsdfg",
-            "backdrop": "sdfg",
+            "name": "",
+            "description": ""
+        },
+        "type": "item",
+        "id": "crowbar",
+
+        "properties": [
+        "takeable"
+        ]
+    },
+    {
+        "items": [
+        "trees"
+        ],
+        "adjoins": [
+        "testRoom"
+],
+        "visual": {
+            "name": "Outside",
+            "description": "You are outside."
+        },
+        "aural": {
+            "name": "",
+            "backdrop": "sound://music/music2",
             "description": ""
         },
         "type": "scene",
-        "id": "qwerewr"
+        "id": "outside"
+    },
+    {
+        "items": [
+        "lock",
+        "crowbar"
+        ],
+        "adjoins": [],
+        "visual": {
+            "name": "Test Room",
+            "description": "You find yourself in a test room."
+        },
+        "aural": {
+            "name": "",
+            "backdrop": "sound://music/music2",
+            "description": ""
+        },
+        "type": "scene",
+        "id": ""
     }
+]
