@@ -36,7 +36,7 @@ public class EventTab {
 	
 	@Row(1) @Column(0) @Explanation("Press to add Event to Event list.")
 	public void addEvent(){
-		Event toBeAdded;
+		Event toBeAdded = new Event();
 		//Check to make sure world does not already contain the item
 		if(!events.contains(toBeAdded)){
 			events.add(toBeAdded);
