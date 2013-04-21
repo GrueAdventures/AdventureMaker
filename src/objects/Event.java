@@ -10,10 +10,10 @@ import util.annotations.Visible;
 
 public class Event extends AbstractObject implements ObjectInterface{
 	
-	protected boolean move;
-	protected boolean take;
-	protected boolean use;
-	protected boolean useOn;
+//	protected boolean move;
+//	protected boolean take;
+//	protected boolean use;
+//	protected boolean useOn;
 	
 	protected String type;
 	protected String id;
@@ -21,38 +21,40 @@ public class Event extends AbstractObject implements ObjectInterface{
 	protected EventType eventType;
 	
 	protected Vector<Exec> execs;
+	protected Vector<Report> reports;
 	
 	
-	//Properties for "move" sub-event
-	protected String scene;
-	protected String moveVisualDescription;
-	protected String moveAuralDescritpion;
-	
-	//Properties for "take" sub-event
-	protected String item;
-	
-	//Properties for "use" sub-event
-	protected String useItem;
-	protected ActionType useOnActionType; //This is an enum. It will be a drop down menu. Handle with a switch:case.
-	protected String useAction; //Switch:case for useOnActionType will decide the value for this String
-	// Make a Vector<set of these properties>
-	
-	//Properties for "use on" sub-event
-	protected String useOnItem1;
-	protected String useOnItem2;
-	protected String useOnScene; //id of Scene action occurs in
-	
+//	//Properties for "move" sub-event
+//	protected String scene;
+//	protected String moveVisualDescription;
+//	protected String moveAuralDescritpion;
+//	
+//	//Properties for "take" sub-event
+//	protected String item;
+//	
+//	//Properties for "use" sub-event
+//	protected String useItem;
+//	protected ActionType useOnActionType; //This is an enum. It will be a drop down menu. Handle with a switch:case.
+//	protected String useAction; //Switch:case for useOnActionType will decide the value for this String
+//	// Make a Vector<set of these properties>
+//	
+//	//Properties for "use on" sub-event
+//	protected String useOnItem1;
+//	protected String useOnItem2;
+//	protected String useOnScene; //id of Scene action occurs in
+//	
 	
 	public Event(){
-		move = false;
-		take = false;
-		use = false;
-		useOn = false;
+//		move = false;
+//		take = false;
+//		use = false;
+//		useOn = false;
 		
 		type = "event";
 		id = "";
 		eventType = EventType.SelectOne;
 		execs = new Vector<Exec>();
+		reports = new Vector<Report>();
 	}
 	
 	public Event(String id){
@@ -79,7 +81,10 @@ public class Event extends AbstractObject implements ObjectInterface{
 		return execs;
 	}
 	
-	
+	@Row(4) @Column(0) @Explanation("")
+	public Vector<Report> getReport() {
+		return reports;
+	}
 
 
 	
@@ -102,9 +107,7 @@ public class Event extends AbstractObject implements ObjectInterface{
 		this.execs = execs;
 	}
 
-	public Vector<Report> getReport() {
-		return reports;
-	}
+
 
 	public void setReport(Vector<Report> reports) {
 		this.reports = reports;

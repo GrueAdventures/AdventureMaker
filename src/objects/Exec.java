@@ -4,7 +4,9 @@ import java.util.Vector;
 
 import util.annotations.Column;
 import util.annotations.Row;
+import util.annotations.StructurePattern;
 
+@StructurePattern("Bean Pattern")
 public class Exec {
 	
 	private ActionType action;
