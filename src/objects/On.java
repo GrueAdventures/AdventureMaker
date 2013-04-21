@@ -17,6 +17,12 @@ public class On {
 		arg1 = "";
 		arg2 = "";
 	}
+	
+	public On(EventType eType, String a1, String a2){
+		type = eType;
+		arg1 = a1;
+		arg2 = a2;
+	}
 
 	@Row(0) @Column(0) @Explanation("Event type")
 	public EventType getType(){

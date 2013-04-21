@@ -36,7 +36,10 @@ public class EventTab {
 	
 	@Row(1) @Column(0) @Explanation("Press to add Event to Event list.")
 	public void addEvent(){
-		Event toBeAdded = new Event();
+		Event toBeAdded = new Event(event.getId(), (Vector<Exec>) event.getExecs().clone(),
+				(new Report(event.getReport().getTitle(), event.getReport().getDescription(),event.getReport().getBackdrop(),
+						event.getReport().getNarration(), event.getReport().getSound(), event.getReport().getAmbience())),
+				(new On(event.getOn().getType(), event.getOn().getArg1(), event.getOn().getArg2())));
 		//Check to make sure world does not already contain the item
 		if(!events.contains(toBeAdded)){
 			events.add(toBeAdded);

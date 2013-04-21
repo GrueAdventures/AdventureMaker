@@ -24,6 +24,16 @@ public class Report {
 		ambience = "";
 	}
 	
+	public Report(String title, String desc, String back, String narr, String sound, String amb){
+		this.title = title;
+		description = desc;
+		backdrop = back;
+		narration = narr;
+		this.sound = sound;
+		ambience = amb;
+	}
+	
+	
 	@Row(0) @Column(0) @Explanation("The title of the report")
 	public String getTitle() {
 		return title;

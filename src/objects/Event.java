@@ -13,8 +13,6 @@ public class Event extends AbstractObject implements ObjectInterface{
 	protected String type;
 	protected String id;
 	
-	protected EventType eventType;
-	
 	protected Vector<Exec> execs;
 	protected Report report;
 	protected On on;
@@ -22,15 +20,17 @@ public class Event extends AbstractObject implements ObjectInterface{
 	public Event(){
 		type = "event";
 		id = "";
-		eventType = EventType.SelectOne;
 		execs = new Vector<Exec>();
 		report = new Report();
 		on = new On();
 	}
 	
-	public Event(String id){
+	public Event(String id, Vector<Exec> exs, Report rep, On on){
 		type = "event";
 		this.id = id;
+		execs = exs;
+		report = rep;
+		this.on = on;
 	}
 
 	@Visible(false)
