@@ -14,86 +14,73 @@ public class EventTab {
 	private Vector<Event> events;
 	
 	public EventTab(){
-		item = new EditableItem();
-		items = new Vector<Item>();
+		event = new EditableEvent();
+		events = new Vector<Event>();
 	}
 		
 	@Row(0) @Column(0)
-	public EditableItem getItem(){
-		return item;
+	public EditableEvent getEvent(){
+		return event;
 	}
 	
 	@Row(2) @Column(0)
-	public Vector<Item> getItems(){
-		return items;
+	public Vector<Event> getEvents(){
+		return events;
 	}
 	
 	private void clear(){
-		item.setId("");
-		item.setVisualName("");
-		item.setVisualDescription("");
-		item.setAuralName("");
-		item.setAuralDescription("");
-		item.setTakeable(false);
-		item.setUseable(false);
+		event = new EditableEvent();
 	}
 	
 	//BEGIN ADD, REMOVE, AND EDIT METHODS FOR VECTOR<ITEM> items
 	
-	@Row(1) @Column(0) @Explanation("Press to add Item to Item list.")
-	public void addItem(){
-		Item toBeAdded =  new Item(item.getId(), item.getVisualName(), item.getVisualDescription(),
-				item.getAuralName(), item.getAuralName(), item.getUseable(), item.getTakeable());
+	@Row(1) @Column(0) @Explanation("Press to add Event to Event list.")
+	public void addEvent(){
+		Event toBeAdded;
 		//Check to make sure world does not already contain the item
-		if(!items.contains(toBeAdded)){
-			items.add(toBeAdded);
+		if(!events.contains(toBeAdded)){
+			events.add(toBeAdded);
 			clear();
 		}
 		else
 			System.out.println("World already contains "+toBeAdded.getId());
 	}
 	
-	@Row(1) @Column(1) @Explanation("Input an Item id to remove it from the list.")
-	public void removeItem(String id){
+	@Row(1) @Column(1) @Explanation("Input an Event id to remove it from the list.")
+	public void removeEvent(String id){
 		int i=0;
-		if(i==items.size()){
-			System.out.println("Item "+id+" was not found.");
+		if(i==events.size()){
+			System.out.println("Event "+id+" was not found.");
 			return;
 		}
 		//Search for first occurrence of "item" and removes it from vector. We are guaranteed a single occurrence of
 		//an item by addItem(Item)
-		while(!items.get(i).getId().equalsIgnoreCase(id)){
+		while(!events.get(i).getId().equalsIgnoreCase(id)){
 			i++;
-			if(i==items.size()){
-				System.out.println("Item "+id+" was not found.");
+			if(i==events.size()){
+				System.out.println("Event "+id+" was not found.");
 				return;
 			}
 		}
-		items.remove(items.get(i));
+		events.remove(events.get(i));
 	}
 	
-	@Row(1) @Column(2)	@Explanation("Enter list number of an Item to edit it.")
-	public void editItem(int i){
+	@Row(1) @Column(2)	@Explanation("Enter list number of an Event to edit it.")
+	public void editEvent(int i){
 		
 		if(i<=0){
 			System.out.println("Must enter a positive value!");
 			return;
 		}
 		
-		if(i>items.size()){
+		if(i>events.size()){
 			System.out.println("Value is out of range!");
 			return;
 		}
 		
-		Item it = items.get(i-1);
-		items.remove(items.get(i-1));
-		item.setId(it.getId());
-		item.setVisualName(it.getVisualName());
-		item.setVisualDescription(it.getVisualDescription());
-		item.setAuralName(it.getAuralName());
-		item.setAuralDescription(it.getAuralDescription());
-		item.setUseable(it.getUseable());
-		item.setTakeable(it.getTakeable());
+		Event ev = events.get(i-1);
+		events.remove(events.get(i-1));
+		event.setId(ev.getId());
 	}
 		//END ADD, REMOVE, AND EDIT METHODS FOR VECTOR<ITEM> items
 }

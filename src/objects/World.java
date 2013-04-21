@@ -15,7 +15,8 @@ public class World {
 	private Player player;
 	private ItemTab itemTab;
 	private SceneTab sceneTab;
-	private Vector<Event> events;
+	private EventTab eventTab;
+//	private Vector<Event> events;
 	private Vector<Ctrl> ctrls;
 	
 	private Translator translator = new Translator();
@@ -24,7 +25,8 @@ public class World {
 		player = new Player();
 		itemTab = new ItemTab();
 		sceneTab = new SceneTab();
-		events = new Vector<Event>();
+		eventTab = new EventTab();
+//		events = new Vector<Event>();
 		ctrls = new Vector<Ctrl>();
 	}
 
@@ -41,34 +43,39 @@ public class World {
 	public SceneTab getScene(){
 		return sceneTab;
 	}
+	
+	@Row(0) @Column(2)
+	public EventTab getEvent(){
+		return eventTab;
+	}
 
-	@Row(3) @Column(0)
-	public Vector<Event> getEvents() {
-		return events;
-	}
-	
-	public void addEvent(Event event){
-		//Check to make sure world does not already contain the event
-		if(!events.contains(event)){
-			events.add(event);
-		}
-		else
-			System.out.println("World already contains "+event.getId());
-	}
-	
-	public void removeEvent(Event event){
-		int i=0;
-		//Search for first occurrence of "event" and removes it from vector. We are guaranteed a single occurrence of
-		//an event by addEvent(Event)
-		while(!events.get(i).getId().equalsIgnoreCase(event.getId())){
-			i++;
-			if(i==events.size()){
-				System.out.println("Event "+event.getId()+" was not found.");
-				return;
-			}
-		}
-		events.remove(event);
-	}
+//	@Row(3) @Column(0)
+//	public Vector<Event> getEvents() {
+//		return events;
+//	}
+//	
+//	public void addEvent(Event event){
+//		//Check to make sure world does not already contain the event
+//		if(!events.contains(event)){
+//			events.add(event);
+//		}
+//		else
+//			System.out.println("World already contains "+event.getId());
+//	}
+//	
+//	public void removeEvent(Event event){
+//		int i=0;
+//		//Search for first occurrence of "event" and removes it from vector. We are guaranteed a single occurrence of
+//		//an event by addEvent(Event)
+//		while(!events.get(i).getId().equalsIgnoreCase(event.getId())){
+//			i++;
+//			if(i==events.size()){
+//				System.out.println("Event "+event.getId()+" was not found.");
+//				return;
+//			}
+//		}
+//		events.remove(event);
+//	}
 	
 	public void translate() throws FileNotFoundException{
 		File file = new File("test.json");
@@ -96,6 +103,7 @@ public class World {
 				writer.printf(",\r\n");
 			}
 		}
+		writer.close();
 	}
 	
 }

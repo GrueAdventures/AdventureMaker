@@ -108,7 +108,7 @@ public class Scene implements ObjectInterface{
 		return auralBackdrop;
 	}
 
-	@Row(7) @Column(0) @Explanation("Coming soon!")
+	@Visible(false) @Row(7) @Column(0) @Explanation("Coming soon!")
 	public Ctrl getController() {
 		return controller;
 	}

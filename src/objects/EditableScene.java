@@ -4,6 +4,7 @@ import util.annotations.Explanation;
 import util.annotations.Column;
 import util.annotations.Row;
 import util.annotations.StructurePattern;
+import util.annotations.Visible;
 
 @StructurePattern("Bean Pattern")
 public class EditableScene extends Scene {
@@ -43,7 +44,7 @@ public class EditableScene extends Scene {
 		this.auralBackdrop = auralBackdrop;
 	}
 
-	@Row(7) @Column(1)
+	@Visible(false) @Row(7) @Column(1)
 	public void setController(Ctrl controller) {
 		this.controller = controller;
 	}

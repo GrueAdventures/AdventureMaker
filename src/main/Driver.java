@@ -11,16 +11,16 @@ import objects.*;
 public class Driver {
 	public static void main(String[] args){
 		
-		ObjectEditor.setPropertyAttribute(ItemTab.class, "Items", AttributeNames.SCROLLED, true);
-		ObjectEditor.setPropertyAttribute(ItemTab.class, "Items", AttributeNames.CONTAINER_WIDTH, 1000);
+//		ObjectEditor.setPropertyAttribute(ItemTab.class, "Items", AttributeNames.SCROLLED, true);
+//		ObjectEditor.setPropertyAttribute(ItemTab.class, "Items", AttributeNames.CONTAINER_WIDTH, 1000);
 //		ObjectEditor.setPropertyAttribute(ItemTab.class, "Items", AttributeNames.CONTAINER_HEIGHT, 100);
 		
-		ObjectEditor.setPropertyAttribute(SceneTab.class, "Scenes", AttributeNames.SCROLLED, true);
-		ObjectEditor.setPropertyAttribute(SceneTab.class, "Scenes", AttributeNames.CONTAINER_WIDTH, 1000);
+//		ObjectEditor.setPropertyAttribute(SceneTab.class, "Scenes", AttributeNames.SCROLLED, true);
+//		ObjectEditor.setPropertyAttribute(SceneTab.class, "Scenes", AttributeNames.CONTAINER_WIDTH, 1000);
 //		ObjectEditor.setPropertyAttribute(SceneTab.class, "Scenes", AttributeNames.CONTAINER_HEIGHT, 100);
 //		
-		ObjectEditor.setPropertyAttribute(EditableScene.class, "Items", AttributeNames.SCROLLED, true);
-		ObjectEditor.setPropertyAttribute(EditableScene.class, "Items", AttributeNames.CONTAINER_WIDTH, 150);
+//		ObjectEditor.setPropertyAttribute(EditableScene.class, "Items", AttributeNames.SCROLLED, true);
+//		ObjectEditor.setPropertyAttribute(EditableScene.class, "Items", AttributeNames.CONTAINER_WIDTH, 150);
 //		ObjectEditor.setPropertyAttribute(EditableScene.class, "Items", AttributeNames.CONTAINER_HEIGHT, 100);
 		
 //		ObjectEditor.setPropertyAttribute(World.class, "Events", AttributeNames.SCROLLED, true);
@@ -35,6 +35,7 @@ public class Driver {
 ////		ObjectEditor.setDefaultAttribute(AttributeNames.CONTAINER_BACKGROUND, Color.BLUE);
 //		
 		ObjectEditor.edit(new World());
+//		ObjectEditor.tabEdit(new World());
 		
 //		ObjectEditor.edit(new Vector<String>());
 		

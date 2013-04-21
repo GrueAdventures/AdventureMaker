@@ -3,14 +3,54 @@ package objects;
 import java.util.Iterator;
 import java.util.Vector;
 
+import util.annotations.Column;
+import util.annotations.Explanation;
+import util.annotations.Row;
+import util.annotations.Visible;
+
 public class Event extends AbstractObject implements ObjectInterface{
+	
+	protected boolean move;
+	protected boolean take;
+	protected boolean use;
+	protected boolean useOn;
 	
 	protected String type;
 	protected String id;
 	
+	protected EventType eventType;
+	
+	
+	
+	//Properties for "move" sub-event
+	protected String scene;
+	protected String moveVisualDescription;
+	protected String moveAuralDescritpion;
+	
+	//Properties for "take" sub-event
+	protected String item;
+	
+	//Properties for "use" sub-event
+	protected String useItem;
+	protected ActionType useOnActionType; //This is an enum. It will be a drop down menu. Handle with a switch:case.
+	protected String useAction; //Switch:case for useOnActionType will decide the value for this String
+	// Make a Vector<set of these properties>
+	
+	//Properties for "use on" sub-event
+	protected String useOnItem1;
+	protected String useOnItem2;
+	protected String useOnScene; //id of Scene action occurs in
+	
+	
 	public Event(){
+		move = false;
+		take = false;
+		use = false;
+		useOn = false;
+		
 		type = "event";
 		id = "";
+		eventType = EventType.SelectOne;
 	}
 	
 	public Event(String id){
@@ -18,12 +58,18 @@ public class Event extends AbstractObject implements ObjectInterface{
 		this.id = id;
 	}
 
+	@Visible(false)
 	public String getType() {
 		return type;
 	}
-
+	
+	@Row(0) @Column(0) @Explanation("Id of Event")
 	public String getId() {
 		return id;
+	}
+	@Row(1) @Column(0) @Explanation("Select a type of Event!")
+	public EventType getEventType(){
+		return eventType;
 	}
 
 
