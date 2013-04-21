@@ -15,6 +15,17 @@ public class EditableEvent extends Event{
 		eventType = eType;
 		checkType();
 	}
+	
+	@Row(3) @Column(0)
+	public void addExec(){
+		Exec ex = new Exec();
+		//Check to make sure scene does not already contain the item
+		if(!execs.contains(ex)){
+			execs.add(ex);
+		}
+		else
+			System.out.println(this.id+" already contains "+ex);
+	}
 
 	//Changes visibility of fields in GUI : DOES NOT WORK. VISIBILITY CANNOT BE CHANGED DURING RUNTIME.
 	private void checkType(){

@@ -20,6 +20,7 @@ public class Event extends AbstractObject implements ObjectInterface{
 	
 	protected EventType eventType;
 	
+	protected Vector<Exec> execs;
 	
 	
 	//Properties for "move" sub-event
@@ -51,6 +52,7 @@ public class Event extends AbstractObject implements ObjectInterface{
 		type = "event";
 		id = "";
 		eventType = EventType.SelectOne;
+		execs = new Vector<Exec>();
 	}
 	
 	public Event(String id){
@@ -71,6 +73,13 @@ public class Event extends AbstractObject implements ObjectInterface{
 	public EventType getEventType(){
 		return eventType;
 	}
+	
+	@Row(2) @Column(0) @Explanation("")
+	public Vector<Exec> getExecs() {
+		return execs;
+	}
+	
+	
 
 
 	
@@ -87,9 +96,7 @@ public class Event extends AbstractObject implements ObjectInterface{
 		this.ons = ons;
 	}
 
-	public Vector<Exec> getExec() {
-		return execs;
-	}
+	
 
 	public void setExec(Vector<Exec> execs) {
 		this.execs = execs;
