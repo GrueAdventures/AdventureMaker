@@ -1,5 +1,6 @@
 package objects;
 
+import util.annotations.Explanation;
 import util.annotations.Column;
 import util.annotations.Row;
 import util.annotations.StructurePattern;
@@ -23,7 +24,7 @@ public class Report {
 		ambience = "";
 	}
 	
-	@Row(0) @Column(0)
+	@Row(0) @Column(0) @Explanation("The title of the report")
 	public String getTitle() {
 		return title;
 	}
@@ -33,7 +34,7 @@ public class Report {
 		this.title = title;
 	}
 	
-	@Row(1) @Column(0)
+	@Row(1) @Column(0) @Explanation("Description of what happened which shows on screen")
 	public String getDescription(){
 		return description;
 	}
@@ -43,7 +44,7 @@ public class Report {
 		this.description = description;
 	}
 	
-	@Row(2) @Column(0)
+	@Row(2) @Column(0) @Explanation("Relative path to image file for the backdrop of the Scene")
 	public String getBackdrop() {
 		return backdrop;
 	}
@@ -53,7 +54,7 @@ public class Report {
 		this.backdrop = backdrop;
 	}
 
-	@Row(3) @Column(0)
+	@Row(3) @Column(0) @Explanation("Relative path to sound file which has the Description of what happened in the report")
 	public String getNarration(){
 		return narration;
 	}
@@ -63,7 +64,7 @@ public class Report {
 		this.narration = narration;
 	}
 	
-	@Row(4) @Column(0)
+	@Row(4) @Column(0) @Explanation("Relative path to sound file which will play when the report occurs")
 	public String getSound() {
 		return sound;
 	}
@@ -73,7 +74,7 @@ public class Report {
 		this.sound = sound;
 	}
 
-	@Row(5) @Column(0)
+	@Row(5) @Column(0) @Explanation("Relative path to sound file which will be played as background on a loop")
 	public String getAmbience() {
 		return ambience;
 	}

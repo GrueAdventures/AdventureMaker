@@ -4,6 +4,7 @@ import java.util.Vector;
 
 import util.annotations.Column;
 import util.annotations.Row;
+import util.annotations.Explanation;
 import util.annotations.StructurePattern;
 
 @StructurePattern("Bean Pattern")
@@ -19,7 +20,7 @@ public class Exec {
 		arg2 = "";
 	}
 	
-	@Row(0) @Column(0)
+	@Row(0) @Column(0) @Explanation("Pick the type of action")
 	public ActionType getAction(){
 		return action;
 	}
@@ -29,7 +30,7 @@ public class Exec {
 		action = aType;
 	}
 	
-	@Row(1) @Column(0)
+	@Row(1) @Column(0) @Explanation("Do the action on")
 	public String getArg1(){
 		return arg1;
 	}
@@ -39,7 +40,7 @@ public class Exec {
 		arg1 = a1;
 	}
 	
-	@Row(2) @Column(0)
+	@Row(2) @Column(0) @Explanation("Set to")
 	public String getArg2(){
 		return arg2;
 	}

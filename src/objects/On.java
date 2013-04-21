@@ -1,6 +1,7 @@
 package objects;
 
 import util.annotations.Column;
+import util.annotations.Explanation;
 import util.annotations.Row;
 import util.annotations.StructurePattern;
 
@@ -17,7 +18,7 @@ public class On {
 		arg2 = "";
 	}
 
-	@Row(0) @Column(0)
+	@Row(0) @Column(0) @Explanation("Event type")
 	public EventType getType(){
 		return type;
 	}
@@ -27,7 +28,7 @@ public class On {
 		type = eType;
 	}
 
-	@Row(1) @Column(0)
+	@Row(1) @Column(0) @Explanation("Scene or Item to preform event on")
 	public String getArg1(){
 		return arg1;
 	}
@@ -37,7 +38,7 @@ public class On {
 		arg1 = a1;
 	}
 	
-	@Row(2) @Column(0)
+	@Row(2) @Column(0) @Explanation("Secondary Item to use Item on")
 	public String getArg2(){
 		return arg2;
 	}
