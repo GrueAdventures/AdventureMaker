@@ -53,14 +53,28 @@ public class WorldTest {
 		testWorld.getEvent().getEvent().getOn().setType(EventType.UseOn);
 		testWorld.getEvent().getEvent().getOn().setArg1("crowbar");
 		testWorld.getEvent().getEvent().getOn().setArg2("lock");
-		testWorld.getEvent().getEvent().setId("Kittens");
+		testWorld.getEvent().getEvent().setId("useCrowbarOnLock");
 		testWorld.getEvent().addEvent();
+		
+		testWorld.getEvent().getEvent().addExec();
+		testWorld.getEvent().getEvent().getExecs().get(0).setAction(ActionType.set);
+		testWorld.getEvent().getEvent().getExecs().get(0).setArg1("scene.testRoom.visual.description");
+		testWorld.getEvent().getEvent().getExecs().get(0).setArg2("You are in a testroom.");
+		testWorld.getEvent().getEvent().addExec();
+		testWorld.getEvent().getEvent().getExecs().get(1).setAction(ActionType.set);
+		testWorld.getEvent().getEvent().getExecs().get(1).setArg1("scene.testRoom.aural.description");
+		testWorld.getEvent().getEvent().getOn().setType(EventType.Move);
+		testWorld.getEvent().getEvent().getOn().setArg1("testRoom");
+		testWorld.getEvent().getEvent().setId("moveTestRoom");
+		testWorld.getEvent().addEvent();
+		
 		
 		testWorld.getEvent().getEvent().addExec();
 		testWorld.getEvent().getEvent().getExecs().get(0).setAction(ActionType.append);
 		testWorld.getEvent().getEvent().getExecs().get(0).setArg1("item.lock.properties");
 		testWorld.getEvent().getEvent().getExecs().get(0).setArg2("useable");
 		
+		testWorld.getEvent().getEvent().setId("takeCrowbar");
 		testWorld.getEvent().getEvent().getOn().setType(EventType.Take);
 		testWorld.getEvent().getEvent().getOn().setArg1("crowbar");
 		testWorld.getEvent().addEvent();
