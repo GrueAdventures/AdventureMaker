@@ -78,7 +78,7 @@ public class World {
 //	}
 	
 	public void translate() throws FileNotFoundException{
-		File file = new File("test.json");
+		File file = new File("world.json");
 		PrintWriter writer = new PrintWriter(file);
 	
 		translator.initialize(writer);
@@ -100,6 +100,17 @@ public class World {
 		while(sceneItr.hasNext()){
 			translator.sceneTranslate(writer, sceneItr.next());
 			if(sceneItr.hasNext()){
+				writer.printf(",\r\n");
+			}
+		}
+		
+		Iterator<Event> eventItr = eventTab.getEvents().iterator();
+		if(sceneItr.hasNext()){
+			writer.printf(",\r\n");
+		}
+		while(eventItr.hasNext()){
+			translator.eventTranslate(writer, eventItr.next());
+			if(eventItr.hasNext()){
 				writer.printf(",\r\n");
 			}
 		}

@@ -435,51 +435,7 @@ public class Translator {
 		writer.printf("    }");
 	}
 	
-	public void moveEventTranslate(PrintWriter writer, MoveEvent event){
-		writer.println("    {\r\n" +
-				"        \"priority\": -1,\r\n" + 
-				"        \"on\": [\r\n" + 
-				"            \"move\",\r\n" + 
-				"            \""+event.getScene().getId()+"\"\r\n" + 
-				"        ],\r\n" + 
-				"        \"type\": \"event\",\r\n" + 
-				"        \"exec\": [\r\n" + 
-				"            {\r\n" + 
-				"                \"action\": \"set\",\r\n" + 
-				"                \"args\": [\r\n" + 
-				"                    \"scene."+event.getScene().getId()+".visual.description\",\r\n" + 
-				"                    \""+event.getVisMoveDesc()+"\"\r\n" + 
-				"                ]\r\n" + 
-				"            },\r\n" + 
-				"            {\r\n" + 
-				"                \"action\": \"set\",\r\n" + 
-				"                \"args\": [\r\n" + 
-				"                    \"scene."+event.getScene().getId()+".aural.description\",\r\n" + 
-				"                    \""+event.getAurMoveDesc()+"\"\r\n" + 
-				"                ]\r\n" + 
-				"            }\r\n" + 
-				"        ]\r\n"); 
-		writer.printf("    }");
-	}
-	
-	public void takeEventTranslate(PrintWriter writer, TakeEvent event){
-		writer.println("    {\r\n" + 
-				"        \"on\": [\r\n" + 
-				"            \"take\",\r\n" + 
-				"            \""+event.getItem().getId()+"\"\r\n" + 
-				"        ],\r\n" + 
-				"        \"type\": \"event\",\r\n" + 
-				"        \"exec\": [\r\n" + 
-				"            {\r\n" + 
-				"                \"action\": \"append\",\r\n" + 
-				"                \"args\": [\r\n" + 
-				"                    \"item."+"lock"+".properties\",\r\n" + 
-				"                    \"useable\"\r\n" + 
-				"                ]\r\n" + 
-				"            }\r\n" + 
-				"        ]\r\n");
-		writer.printf("    }");
-	}
+
 	
 	public void itemTranslate(PrintWriter writer, Item item){
 		writer.println("    {\r\n" + 
@@ -515,6 +471,155 @@ public class Translator {
 			writer.printf("\n");
 			if(!propItr.hasNext()) writer.printf("        ]\n");
 		}
+		writer.printf("    }");
+	}
+	
+	public void moveEventTranslate(PrintWriter writer, MoveEvent event){
+		writer.println("    {\r\n" +
+				"        \"priority\": -1,\r\n" + 
+				"        \"on\": [\r\n" + 
+				"            \"move\",\r\n" + 
+				"            \""+event.getScene().getId()+"\"\r\n" + 
+				"        ],\r\n" + 
+				"        \"type\": \"event\",\r\n" + 
+				"        \"exec\": [\r\n" + 
+				"            {\r\n" + 
+				"                \"action\": \"set\",\r\n" + 
+				"                \"args\": [\r\n" + 
+				"                    \"scene."+event.getScene().getId()+".visual.description\",\r\n" + 
+				"                    \""+event.getVisMoveDesc()+"\"\r\n" + 
+				"                ]\r\n" + 
+				"            },\r\n" + 
+				"            {\r\n" + 
+				"                \"action\": \"set\",\r\n" + 
+				"                \"args\": [\r\n" + 
+				"                    \"scene."+event.getScene().getId()+".aural.description\",\r\n" + 
+				"                    \""+event.getAurMoveDesc()+"\"\r\n" + 
+				"                ]\r\n" + 
+				"            }\r\n" + 
+				"        ]\r\n"); 
+		writer.println("    }\r\n");
+	}
+	
+	public void eventTranslate(PrintWriter writer, Event event){
+		EventType eventType = event.getOn().getType();
+		writer.println("    {");
+		writer.println("        \"type\": \"event\",\r\n" + 
+				"        \"id\": \""+event.getId()+"\",\r\n" + 
+				"        \"on\": [");
+		switch(eventType){
+			case Examine:
+				writer.println("        \"examine\",");
+				writer.println("            \""+event.getOn().getArg1()+"\"");
+				break;
+			case Move:
+				writer.println("            \"move\",");
+				writer.println("            \""+event.getOn().getArg1()+"\"");
+				break;
+			case Take:
+				writer.println("            \"take\",");
+				writer.println("            \""+event.getOn().getArg1()+"\"");
+				break;
+			case Use:
+				writer.println("            \"use\",");
+				writer.println("            \""+event.getOn().getArg1()+"\"");
+				break;
+				
+			case UseOn:
+				writer.println("            \"use\",");
+				writer.println("            \""+event.getOn().getArg1()+"\",");
+				writer.println("            \""+event.getOn().getArg2()+"\"");
+				break;
+			default:
+				break;
+		}
+		writer.println("        ],");
+		writer.println("        \"exec\": [");
+	
+		
+		Iterator<Exec> execItr = event.getExecs().iterator();
+		Exec currentExec;
+		while (execItr.hasNext()){
+			currentExec = execItr.next();
+			writer.println("            {\r\n" + 
+				"                \"action\": \""+currentExec.getAction()+"\",\r\n" + 
+				"                \"args\": [\r\n" + 
+				"                    \""+currentExec.getArg1()+"\","); 
+				if(currentExec.getArg2() == "true" || currentExec.getArg2() == "false"){
+					writer.println("                    "+currentExec.getArg2());
+				}
+				else {
+					writer.println("                    \""+currentExec.getArg2()+"\"");
+				}
+				writer.println("                ]");
+			writer.printf("            }");
+			if (execItr.hasNext()){
+				writer.printf(",\r\n");
+			}
+			else {
+				writer.printf("\r\n");
+			}
+		}
+		writer.println("        ],");
+
+		Vector<String> reports = new Vector<String>();
+		if(event.getReport().getTitle().length() != 0){
+			reports.add("\"title\": \""+event.getReport().getTitle()+"\"");
+		}
+		if(event.getReport().getDescription().length() != 0){
+			reports.add("                \"description\": \""+event.getReport().getDescription()+"\"");
+		}		
+		if(event.getReport().getBackdrop().length() != 0){
+			reports.add("                \"backdrop\": \""+event.getReport().getBackdrop()+"\"");
+		}
+		if(event.getReport().getNarration().length() != 0){
+			reports.add("                \"narration\": \""+event.getReport().getNarration()+"\"");
+		}
+		if(event.getReport().getAmbience().length() != 0){
+			reports.add("                \"ambience\": \""+event.getReport().getAmbience()+"\"");
+		}
+		Iterator<String> reportItr = reports.iterator();
+		writer.printf("        \"report\": [");
+		
+		if (reportItr.hasNext()){
+			writer.printf("\r\n");
+			writer.printf("            {\r\n");
+		}
+		else {
+			writer.printf("]\r\n");
+		}
+
+		while(reportItr.hasNext()){
+			writer.printf(reportItr.next());
+			if(reportItr.hasNext()){
+				writer.printf(",\r\n");
+			}
+			else {
+				writer.printf("\r\n");
+				writer.println("            }");
+				writer.println("        ]");
+			}
+		}
+		writer.println("    }");
+		
+	}
+	
+	public void takeEventTranslate(PrintWriter writer, TakeEvent event){
+		writer.println("    {\r\n" + 
+				"        \"on\": [\r\n" + 
+				"            \"take\",\r\n" + 
+				"            \""+event.getItem().getId()+"\"\r\n" + 
+				"        ],\r\n" + 
+				"        \"type\": \"event\",\r\n" + 
+				"        \"exec\": [\r\n" + 
+				"            {\r\n" + 
+				"                \"action\": \"append\",\r\n" + 
+				"                \"args\": [\r\n" + 
+				"                    \"item."+"lock"+".properties\",\r\n" + 
+				"                    \"useable\"\r\n" + 
+				"                ]\r\n" + 
+				"            }\r\n" + 
+				"        ]\r\n");
 		writer.printf("    }");
 	}
 	
@@ -602,7 +707,7 @@ public class Translator {
 				"        },\r\n" + 
 				"        \"type\": \""+scene.getType()+"\",\r\n" + 
 				"        \"id\": \""+scene.getId()+"\""); 
-		writer.printf("    }");
+		writer.println("    }");
 	}
 
 }
