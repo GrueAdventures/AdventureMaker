@@ -3,6 +3,7 @@ package objects;
 import java.util.Vector;
 import util.annotations.Explanation;
 import util.annotations.Column;
+import util.annotations.Label;
 import util.annotations.Row;
 import util.annotations.StructurePattern;
 
@@ -58,7 +59,7 @@ public class SceneTab {
 			System.out.println("World already contains "+toBeAdded.getId());
 	}
 	
-	@Row(1) @Column(1) @Explanation("Input a Scene id to remove it from the list.")
+	@Row(1) @Column(1) @Explanation("Input a Scene id to remove it from the list.") @Label("Remove Scene")
 	public void removeScene(String id){
 		int i=0;
 		if(i==scenes.size()){
@@ -77,7 +78,7 @@ public class SceneTab {
 		scenes.remove(scenes.get(i));
 	}
 	
-	@Row(1) @Column(2) @Explanation("Enter list number of a Scene to edit it.")
+	@Row(1) @Column(2) @Explanation("Enter list number of a Scene to edit it.")@Label("Edit Scene")
 	public void editScene(int i){
 		
 		if(i<=0){

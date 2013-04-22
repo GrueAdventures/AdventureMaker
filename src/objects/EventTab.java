@@ -3,6 +3,7 @@ package objects;
 import java.util.Vector;
 import util.annotations.Explanation;
 import util.annotations.Column;
+import util.annotations.Label;
 import util.annotations.Row;
 import util.annotations.StructurePattern;
 
@@ -49,7 +50,7 @@ public class EventTab {
 			System.out.println("World already contains "+toBeAdded.getId());
 	}
 	
-	@Row(1) @Column(1) @Explanation("Input an Event id to remove it from the list.")
+	@Row(1) @Column(1) @Explanation("Input an Event id to remove it from the list.") @Label("Remove Event") 
 	public void removeEvent(String id){
 		int i=0;
 		if(i==events.size()){
@@ -68,7 +69,7 @@ public class EventTab {
 		events.remove(events.get(i));
 	}
 	
-	@Row(1) @Column(2)	@Explanation("Enter list number of an Event to edit it.")
+	@Row(1) @Column(2)	@Explanation("Enter list number of an Event to edit it.") @Label("Edit Event")
 	public void editEvent(int i){
 		
 		if(i<=0){

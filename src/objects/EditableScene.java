@@ -2,6 +2,7 @@ package objects;
 
 import util.annotations.Explanation;
 import util.annotations.Column;
+import util.annotations.Label;
 import util.annotations.Row;
 import util.annotations.StructurePattern;
 import util.annotations.Visible;
@@ -51,7 +52,7 @@ public class EditableScene extends Scene {
 	
 	//BEGIN ADD AND REMOVE METHODS FOR VECTOR<STRING> items AND adjoins
 	
-	@Row(9) @Column(0) @Explanation("Add an Item id to this Scene")
+	@Row(9) @Column(0) @Explanation("Add an Item id to this Scene")@Label("Add Item")
 	public void addItem(String item){
 		//Check to make sure scene does not already contain the item
 		if(!items.contains(item)){
@@ -62,7 +63,7 @@ public class EditableScene extends Scene {
 	}
 	
 
-	@Row(9) @Column(2) @Explanation("Remove an Item id from this Scene")
+	@Row(9) @Column(2) @Explanation("Remove an Item id from this Scene")@Label("Remove Item")
 	public void removeItem(String item){
 		int i=0;
 		//Check to make sure within bounds
@@ -82,7 +83,7 @@ public class EditableScene extends Scene {
 	items.remove(item);
 	}
 	
-	@Row(11) @Column(0) @Explanation("Add an ajoining Scene id to this Scene")
+	@Row(11) @Column(0) @Explanation("Add an ajoining Scene id to this Scene") @Label("Add Scene")
 	public void addScene(String scene){
 		//Check to make sure scene is not already joined
 		if(!adjoins.contains(scene)){
@@ -92,7 +93,7 @@ public class EditableScene extends Scene {
 			System.out.println(this.id+" already contains "+scene);
 	}
 	
-	@Row(11) @Column(2) @Explanation("Remove an ajoining Scene id from this Scene")
+	@Row(11) @Column(2) @Explanation("Remove an ajoining Scene id from this Scene") @Label("Remove Scene")
 	public void removeScene(String scene){
 		int i=0;
 		//Check to make sure within bounds

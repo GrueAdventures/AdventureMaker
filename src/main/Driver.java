@@ -8,6 +8,7 @@ import bus.uigen.ObjectEditor;
 import bus.uigen.attributes.AttributeNames;
 import objects.*;
 
+
 public class Driver {
 	public static void main(String[] args){
 		
@@ -34,9 +35,8 @@ public class Driver {
 ////		ObjectEditor.setPropertyAttribute(EditableItem.class, "Save", AttributeNames.SHOW_BUTTON, true);
 ////		ObjectEditor.setDefaultAttribute(AttributeNames.CONTAINER_BACKGROUND, Color.BLUE);
 //		
-		ObjectEditor.edit(new World());
-//		ObjectEditor.tabEdit(new World());
-		
+//		ObjectEditor.edit(new World());
+		ObjectEditor.tabEdit(new World());
 //		ObjectEditor.edit(new Vector<String>());
 		
 	}
