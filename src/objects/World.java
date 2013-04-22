@@ -16,6 +16,7 @@ public class World {
 	private ItemTab itemTab;
 	private SceneTab sceneTab;
 	private EventTab eventTab;
+	private GameInfoTab gameInfoTab;
 //	private Vector<Event> events;
 	private Vector<Ctrl> ctrls;
 	
@@ -26,6 +27,7 @@ public class World {
 		itemTab = new ItemTab();
 		sceneTab = new SceneTab();
 		eventTab = new EventTab();
+		gameInfoTab = new GameInfoTab();
 //		events = new Vector<Event>();
 		ctrls = new Vector<Ctrl>();
 	}
@@ -49,6 +51,9 @@ public class World {
 		return eventTab;
 	}
 
+	public GameInfoTab getGameInfo(){
+		return gameInfoTab;
+	}
 //	@Row(3) @Column(0)
 //	public Vector<Event> getEvents() {
 //		return events;
