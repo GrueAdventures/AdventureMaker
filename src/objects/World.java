@@ -110,7 +110,7 @@ public class World {
 		}
 		
 		Iterator<Event> eventItr = eventTab.getEvents().iterator();
-		if(sceneItr.hasNext()){
+		if(eventItr.hasNext()){
 			writer.printf(",\r\n");
 		}
 		while(eventItr.hasNext()){

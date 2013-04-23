@@ -514,7 +514,8 @@
         },
         "type": "scene",
         "id": "testRoom"
-    }    {
+    },
+    {
         "type": "event",
         "id": "useCrowbarOnLock",
         "on": [
