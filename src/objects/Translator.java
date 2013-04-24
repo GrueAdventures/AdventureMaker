@@ -619,7 +619,7 @@ public class Translator {
 		
 		Iterator<String> adjoinItr = scene.getAdjoins().iterator();
 		if (adjoinItr.hasNext())  writer.printf("\n");
-		else writer.printf("[],\r\n");
+		else writer.printf("],\r\n");
 		while (adjoinItr.hasNext()){
 			writer.printf("        \""+adjoinItr.next()+"\"");
 			if(adjoinItr.hasNext()) writer.printf(",");
