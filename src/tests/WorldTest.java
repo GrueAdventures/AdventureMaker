@@ -32,6 +32,8 @@ public class WorldTest {
 //		UseEvent crowbarToLock = new UseEvent("crowbarToLock", crowbar, lock);
 //		MoveEvent moveTestRoom = new MoveEvent(testRoom);	
 	
+		testWorld.getGameInfo().setGameName("Test World");
+		testWorld.getGameInfo().setStartingScene("testRoom");
 		
 		testWorld.getEvent().getEvent().addExec();
 		testWorld.getEvent().getEvent().getExecs().get(0).setAction(ActionType.append);
