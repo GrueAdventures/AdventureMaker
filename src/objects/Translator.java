@@ -6,7 +6,7 @@ import java.util.Vector;
 
 public class Translator {
 	
-	public void initialize(PrintWriter writer){
+	public void initialize(PrintWriter writer, GameInfoTab gameInfo){
 		writer.println("[\r\n" +
 				"    {\r\n" + 
 				"        \"items\": [],\r\n" + 
@@ -19,17 +19,17 @@ public class Translator {
 				"        \"controller\": \"dim/controllers/meta/boot\",\r\n" + 
 				"        \"adjoins\": [],\r\n" + 
 				"        \"visual\": {\r\n" + 
-				"            \"name\": \"Test World\"\r\n" +  //Need to add name of the game
+				"            \"name\": \""+gameInfo.getGameName()+"\"\r\n" +  //Need to add name of the game
 				"        },\r\n" + 
 				"        \"aural\": {\r\n" + 
-				"            \"name\": \"\",\r\n" + 
-				"            \"backdrop\": \"\"\r\n" + 
+				"            \"name\": \""+gameInfo.getAuralName()+"\",\r\n" + 
+				"            \"backdrop\": \""+gameInfo.getAuralBackdrop()+"\"\r\n" + 
 				"        },\r\n" + 
 				"        \"type\": \"scene\",\r\n" + 
 				"        \"id\": \"boot\"\r\n" + 
 				"    },\r\n" +
 				"    {\r\n" + 
-				"        \"scene\": \"testRoom\",\r\n" + //Needs to reflect gameInfo
+				"        \"scene\": \""+gameInfo.getStartingScene()+"\",\r\n" + //Needs to reflect gameInfo
 				"        \"channels\": {\r\n" + 
 				"            \"sound\": {\r\n" + 
 				"                \"type\": \"aural\",\r\n" + 

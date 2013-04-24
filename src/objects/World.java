@@ -51,6 +51,7 @@ public class World {
 		return eventTab;
 	}
 
+	@Row(0) @Column(3)
 	public GameInfoTab getGameInfo(){
 		return gameInfoTab;
 	}
@@ -85,8 +86,8 @@ public class World {
 	public void translate() throws FileNotFoundException{
 		File file = new File("world.json");
 		PrintWriter writer = new PrintWriter(file);
-	
-		translator.initialize(writer);
+
+		translator.initialize(writer, gameInfoTab);
 		Iterator<Item> itemItr = itemTab.getItems().iterator();
 		if(itemItr.hasNext()){
 			writer.printf(",\r\n");

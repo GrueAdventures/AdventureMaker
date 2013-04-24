@@ -3,8 +3,10 @@ package objects;
 import util.annotations.Explanation;
 import util.annotations.Column;
 import util.annotations.Row;
+import util.annotations.StructurePattern;
 import util.annotations.Visible;
 
+@StructurePattern("Bean Pattern")
 public class Item extends AbstractObject implements ObjectInterface{
 	
 	protected String type;

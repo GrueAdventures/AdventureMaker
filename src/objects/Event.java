@@ -6,8 +6,10 @@ import java.util.Vector;
 import util.annotations.Column;
 import util.annotations.Explanation;
 import util.annotations.Row;
+import util.annotations.StructurePattern;
 import util.annotations.Visible;
 
+@StructurePattern("Bean Pattern")
 public class Event extends AbstractObject implements ObjectInterface{
 
 	protected String type;

@@ -5,8 +5,10 @@ import java.util.Vector;
 import util.annotations.Explanation;
 import util.annotations.Column;
 import util.annotations.Row;
+import util.annotations.StructurePattern;
 import util.annotations.Visible;
 
+@StructurePattern("Bean Pattern")
 public class Scene implements ObjectInterface{
 	
 	protected String type;

@@ -35,9 +35,9 @@ public class Driver {
 ////		ObjectEditor.setPropertyAttribute(EditableItem.class, "Save", AttributeNames.SHOW_BUTTON, true);
 ////		ObjectEditor.setDefaultAttribute(AttributeNames.CONTAINER_BACKGROUND, Color.BLUE);
 //		
-//		ObjectEditor.edit(new World());
-		ObjectEditor.tabEdit(new World());
-//		ObjectEditor.edit(new Vector<String>());
+		ObjectEditor.edit(new World());
+//		ObjectEditor.tabEdit(new World());
+//	ObjectEditor.edit(new Vector<String>());
 		
 	}
 
