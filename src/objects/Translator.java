@@ -488,7 +488,6 @@ public class Translator {
 		EventType eventType = event.getOn().getType();
 		writer.println("    {");
 		writer.println("        \"type\": \"event\",\r\n" + 
-				"        \"id\": \""+event.getId()+"\",\r\n" + 
 				"        \"on\": [");
 		switch(eventType){
 			case Examine:
@@ -604,7 +603,7 @@ public class Translator {
 			writer.printf("],\n");
 		}
 		while(itemsItr.hasNext()){
-			writer.printf("        \""+itemsItr.next()+"\"");
+			writer.printf("            \""+itemsItr.next()+"\"");
 			if(itemsItr.hasNext()){ 
 				writer.printf(",");
 			}
@@ -620,12 +619,16 @@ public class Translator {
 		
 		Iterator<String> adjoinItr = scene.getAdjoins().iterator();
 		if (adjoinItr.hasNext())  writer.printf("\n");
+		else writer.printf("[],\r\n");
 		while (adjoinItr.hasNext()){
 			writer.printf("        \""+adjoinItr.next()+"\"");
 			if(adjoinItr.hasNext()) writer.printf(",");
 			writer.printf("\n");
+			if (!adjoinItr.hasNext()) {
+				writer.printf("        ],\n");
+			}
 		}
-		writer.printf("        ],\n");
+		
 		
 		writer.println("        \"visual\": {\r\n" + 
 				"            \"name\": \""+scene.getVisualName()+"\",\r\n" + 
