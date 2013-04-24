@@ -254,15 +254,6 @@ public class Translator {
 				"                \"narration\": \"sound://speech/whatToExamine\"\r\n" + 
 				"            }\r\n" + 
 				"        ],\r\n" +
-				"        \"nearby\": {\r\n" + 
-				"            \"visual\": {\r\n" + 
-				"                \"name\": \"Nearby\"\r\n" + 
-				"            },\r\n" + 
-				"            \"aural\": {\r\n" + 
-				"                \"name\": \"sound://speech/nearby\"\r\n" + 
-				"            },\r\n" + 
-				"            \"id\": \"examineNearby\"\r\n" + 
-				"        }, " + 
 				"        \"type\": \"ctrl\",\r\n" + 
 				"        \"id\": \"examine\",\r\n" + 
 				"        \"impossible\": [\r\n" + 
