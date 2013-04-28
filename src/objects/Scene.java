@@ -115,12 +115,12 @@ public class Scene implements ObjectInterface{
 		return controller;
 	}
 
-	@Row(8) @Column(0)
+	@Visible(false)
 	public Vector<String> getItems() {
 		return items;
 	}
 
-	@Row(10) @Column(0)
+	@Visible(false)
 	public Vector<String> getAdjoins() {
 		return adjoins;
 	}	

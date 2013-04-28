@@ -50,7 +50,7 @@ public class Event extends AbstractObject implements ObjectInterface{
 		return on;
 	}
 	
-	@Row(2) @Column(0) @Explanation("")
+	@Visible(false)
 	public Vector<Exec> getExecs() {
 		return execs;
 	}

@@ -1,5 +1,7 @@
 package objects;
 
+import java.util.Vector;
+
 import util.annotations.Explanation;
 import util.annotations.Column;
 import util.annotations.Label;
@@ -49,6 +51,17 @@ public class EditableScene extends Scene {
 	public void setController(Ctrl controller) {
 		this.controller = controller;
 	}
+	
+	@Row(8) @Column(0)
+	public Vector<String> getItems() {
+		return items;
+	}
+
+	@Row(10) @Column(0)
+	public Vector<String> getAdjoins() {
+		return adjoins;
+	}	
+
 	
 	//BEGIN ADD AND REMOVE METHODS FOR VECTOR<STRING> items AND adjoins
 	
