@@ -1,13 +1,8 @@
 package objects;
 
+import java.awt.TextArea;
 import java.util.Vector;
-
-import util.annotations.Explanation;
-import util.annotations.Column;
-import util.annotations.Label;
-import util.annotations.Row;
-import util.annotations.StructurePattern;
-import util.annotations.Visible;
+import util.annotations.*;
 
 @StructurePattern("Bean Pattern")
 public class EditableScene extends Scene {
@@ -38,7 +33,7 @@ public class EditableScene extends Scene {
 		this.visualName = visualName;
 	}
 
-	@Row(2) @Column(1)
+	@Row(2) @Column(1) @PreferredWidgetClass(TextArea.class)
 	public void setVisualDescription(String visualDescription) {
 		this.visualDescription = visualDescription;
 	}

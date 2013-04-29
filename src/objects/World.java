@@ -7,10 +7,12 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import util.annotations.Column;
+import util.annotations.PropertyNames;
 import util.annotations.Row;
 import util.annotations.StructurePattern;
 
 @StructurePattern("Bean Pattern")
+@PropertyNames({"item", "scene", "event", "gameInfo"})
 public class World {
 	private Player player;
 	private ItemTab itemTab;

@@ -1,7 +1,7 @@
 package objects;
 
-import util.annotations.Column;
-import util.annotations.Row;
+import java.awt.TextArea;
+import util.annotations.*;
 
 public class EditableReport extends Report{
 	
@@ -10,7 +10,7 @@ public class EditableReport extends Report{
 		this.title = title;
 	}
 	
-	@Row(1) @Column(1)
+	@Row(1) @Column(1) @PreferredWidgetClass(TextArea.class)
 	public void setDescription(String description){
 		this.description = description;
 	}

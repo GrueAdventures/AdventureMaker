@@ -1,9 +1,7 @@
 package objects;
 
-import util.annotations.Explanation;
-import util.annotations.Column;
-import util.annotations.Row;
-import util.annotations.StructurePattern;
+import java.awt.TextArea;
+import util.annotations.*;
 
 @StructurePattern("Bean Pattern")
 public class EditableItem extends Item{
@@ -18,7 +16,7 @@ public class EditableItem extends Item{
 		this.visualName = visualName;
 	}
 
-	@Row(2) @Column(1)
+	@Row(2) @Column(1) @PreferredWidgetClass(TextArea.class)
 	public void setVisualDescription(String visualDescription) {
 		this.visualDescription = visualDescription;
 	}

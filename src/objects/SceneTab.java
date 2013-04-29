@@ -1,11 +1,7 @@
 package objects;
 
 import java.util.Vector;
-import util.annotations.Explanation;
-import util.annotations.Column;
-import util.annotations.Label;
-import util.annotations.Row;
-import util.annotations.StructurePattern;
+import util.annotations.*;
 
 //Wrapper class for EditableScene+Vector<Scene>
 @StructurePattern("Bean Pattern")
@@ -30,16 +26,17 @@ public class SceneTab {
 	}
 	
 	private void clear(){
-		scene.setId("");
-		scene.setVisualName("");
-		scene.setVisualDescription("");
-		scene.setVisualBackdrop("");
-		scene.setAuralName("");
-		scene.setAuralDescription("");
-		scene.setAuralBackdrop("");
-		scene.setController(null);
-		scene.getItems().clear();
-		scene.getAdjoins().clear();
+//		scene.setId("");
+//		scene.setVisualName("");
+//		scene.setVisualDescription("");
+//		scene.setVisualBackdrop("");
+//		scene.setAuralName("");
+//		scene.setAuralDescription("");
+//		scene.setAuralBackdrop("");
+//		scene.setController(null);
+//		scene.getItems().clear();
+//		scene.getAdjoins().clear();
+		scene = new EditableScene();
 	}
 	
 	//BEGIN ADD, REMOVE, AND EDIT METHODS FOR VECTOR<SCENE> scenes
@@ -49,8 +46,8 @@ public class SceneTab {
 //		Vector<String> items = vectorDeepCopy(scene.getItems());
 //		Vector<String> adjoins = vectorDeepCopy(scene.getAdjoins());
 		Scene toBeAdded = new Scene(scene.getId(), scene.getVisualName(), scene.getVisualDescription(), scene.getVisualBackdrop(),
-				scene.getAuralName(), scene.getAuralDescription(), scene.getAuralBackdrop(),(Vector<String>) scene.getItems().clone(),
-				(Vector<String>) scene.getAdjoins().clone(), scene.getController());
+				scene.getAuralName(), scene.getAuralDescription(), scene.getAuralBackdrop(), (Vector<String>) util.misc.Common.deepCopy(scene.getItems()),
+				(Vector<String>) util.misc.Common.deepCopy(scene.getAdjoins()), scene.getController());
 		
 		//Check to make sure world does not already contain the scene
 		if(!scenes.contains(toBeAdded)){
