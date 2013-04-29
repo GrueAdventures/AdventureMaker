@@ -12,6 +12,22 @@ import util.annotations.Visible;
 @StructurePattern("Bean Pattern")
 public class EditableScene extends Scene {
 	
+	
+	public EditableScene(){
+		type = "scene";
+		this.id = "";
+		visualName = "";
+		visualDescription = "";
+		visualBackdrop = "";
+		auralName = "";
+		auralDescription = "";
+		auralBackdrop = "";
+		this.controller = null;
+//		items = new Vector<String>();
+		resetItems();
+		adjoins = new Vector<String>();	
+	}
+	
 	@Row(0) @Column(1)
 	public void setId(String id) {
 		this.id = id;
@@ -63,6 +79,11 @@ public class EditableScene extends Scene {
 	}	
 
 	
+	private void resetItems(){
+		items.clear();
+		items = new Vector<String>();
+	}
+	
 	//BEGIN ADD AND REMOVE METHODS FOR VECTOR<STRING> items AND adjoins
 	
 	@Row(9) @Column(0) @Explanation("Add an Item id to this Scene")@Label("Add Item")
@@ -77,23 +98,13 @@ public class EditableScene extends Scene {
 	
 
 	@Row(9) @Column(2) @Explanation("Remove an Item id from this Scene")@Label("Remove Item")
-	public void removeItem(String item){
-		int i=0;
-		//Check to make sure within bounds
-		if(i==items.size()){
-			System.out.println("Item "+item+" was not found.");
+	public void removeItem(int i){
+		if((i>items.size())||(i<=0)){
+			System.out.println("Please enter a number within the range.");
 			return;
 		}
-		//Search for first occurrence of "item" and removes it from vector. We are guaranteed a single occurrence of
-		//an item by addItem(String)
-		while(!items.get(i).equalsIgnoreCase(item)){
-			i++;
-			if(i==items.size()){
-				System.out.println("Item "+item+" was not found.");
-				return;
-			}
-		}
-	items.remove(item);
+		i=i-1;
+		items.remove(items.get(i));
 	}
 	
 	@Row(11) @Column(0) @Explanation("Add an ajoining Scene id to this Scene") @Label("Add Scene")
@@ -107,24 +118,13 @@ public class EditableScene extends Scene {
 	}
 	
 	@Row(11) @Column(2) @Explanation("Remove an ajoining Scene id from this Scene") @Label("Remove Scene")
-	public void removeScene(String scene){
-		int i=0;
-		//Check to make sure within bounds
-		if(i==adjoins.size()){
-			System.out.println("Scene "+scene+" was not found.");
+	public void removeScene(int i){
+		if((i>adjoins.size())||(i<=0)){
+			System.out.println("Please enter a number within the range.");
 			return;
 		}
-		
-		//Search for first occurrence of "scene" and removes it from vector. We are guaranteed a single occurrence of
-		//an item by addScene(String)
-		while(!adjoins.get(i).equalsIgnoreCase(scene)){
-			i++;
-			if(i==adjoins.size()){
-				System.out.println("Scene "+scene+" was not found.");
-				return;
-			}
-		}
-	adjoins.remove(scene);
+		i=i-1;
+		adjoins.remove(adjoins.get(i));
 	}
 	
 	//END ADD AND REMOVE METHODS FOR VECTOR<STRING> items AND adjoins

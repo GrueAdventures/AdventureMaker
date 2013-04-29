@@ -30,26 +30,27 @@ public class SceneTab {
 	}
 	
 	private void clear(){
-//		scene.setId("");
-//		scene.setVisualName("");
-//		scene.setVisualDescription("");
-//		scene.setVisualBackdrop("");
-//		scene.setAuralName("");
-//		scene.setAuralDescription("");
-//		scene.setAuralBackdrop("");
-//		scene.setController(null);
-//		scene.getItems().clear();
-//		scene.getAdjoins().clear();
-		scene = new EditableScene();
+		scene.setId("");
+		scene.setVisualName("");
+		scene.setVisualDescription("");
+		scene.setVisualBackdrop("");
+		scene.setAuralName("");
+		scene.setAuralDescription("");
+		scene.setAuralBackdrop("");
+		scene.setController(null);
+		scene.getItems().clear();
+		scene.getAdjoins().clear();
 	}
 	
 	//BEGIN ADD, REMOVE, AND EDIT METHODS FOR VECTOR<SCENE> scenes
 	
 	@Row(1) @Column(0) @Explanation("Press to add Scene to Item list.")
-	public void addScene(){		
+	public void addScene(){
+//		Vector<String> items = vectorDeepCopy(scene.getItems());
+//		Vector<String> adjoins = vectorDeepCopy(scene.getAdjoins());
 		Scene toBeAdded = new Scene(scene.getId(), scene.getVisualName(), scene.getVisualDescription(), scene.getVisualBackdrop(),
-				scene.getAuralName(), scene.getAuralDescription(), scene.getAuralBackdrop(),(Vector<String>) scene.getItems().clone(), (Vector<String>) scene.getAdjoins().clone(),
-				scene.getController());
+				scene.getAuralName(), scene.getAuralDescription(), scene.getAuralBackdrop(),(Vector<String>) scene.getItems().clone(),
+				(Vector<String>) scene.getAdjoins().clone(), scene.getController());
 		
 		//Check to make sure world does not already contain the scene
 		if(!scenes.contains(toBeAdded)){
@@ -61,21 +62,12 @@ public class SceneTab {
 	}
 	
 	@Row(1) @Column(1) @Explanation("Input a Scene id to remove it from the list.") @Label("Remove Scene")
-	public void removeScene(String id){
-		int i=0;
-		if(i==scenes.size()){
-			System.out.println("Scene "+id+" was not found.");
+	public void removeScene(int i){
+		if((i>scenes.size())||(i<=0)){
+			System.out.println("Please enter a number within the range.");
 			return;
 		}
-		//Search for first occurrence of "scene" and removes it from vector. We are guaranteed a single occurrence of
-		//a scene by addScene(Scene)
-		while(!scenes.get(i).getId().equalsIgnoreCase(id)){
-			i++;
-			if(i==scenes.size()){
-				System.out.println("Scene "+id+" was not found.");
-				return;
-			}
-		}
+		i=i-1;
 		scenes.remove(scenes.get(i));
 	}
 	
@@ -115,4 +107,5 @@ public class SceneTab {
 	}
 	
 	//END ADD, REMOVE, AND EDIT METHODS FOR VECTOR<SCENE> scenes
+	
 }

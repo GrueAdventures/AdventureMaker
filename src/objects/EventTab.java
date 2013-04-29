@@ -30,7 +30,10 @@ public class EventTab {
 	}
 	
 	private void clear(){
-		event = new EditableEvent();
+		event.setId("");
+		event.getOn().resetOn();
+		event.getReport().resetReport();
+		event.getExecs().clear();
 	}
 	
 	//BEGIN ADD, REMOVE, AND EDIT METHODS FOR VECTOR<ITEM> items
@@ -51,21 +54,12 @@ public class EventTab {
 	}
 	
 	@Row(1) @Column(1) @Explanation("Input an Event id to remove it from the list.") @Label("Remove Event") 
-	public void removeEvent(String id){
-		int i=0;
-		if(i==events.size()){
-			System.out.println("Event "+id+" was not found.");
+	public void removeEvent(int i){
+		if((i>events.size())||(i<=0)){
+			System.out.println("Please enter a number within the range.");
 			return;
 		}
-		//Search for first occurrence of "item" and removes it from vector. We are guaranteed a single occurrence of
-		//an item by addItem(Item)
-		while(!events.get(i).getId().equalsIgnoreCase(id)){
-			i++;
-			if(i==events.size()){
-				System.out.println("Event "+id+" was not found.");
-				return;
-			}
-		}
+		i=i-1;
 		events.remove(events.get(i));
 	}
 	
@@ -85,6 +79,8 @@ public class EventTab {
 		Event ev = events.get(i-1);
 		events.remove(events.get(i-1));
 		event.setId(ev.getId());
+		event.editOn((EditableOn) ev.getOn());
+		
 	}
 		//END ADD, REMOVE, AND EDIT METHODS FOR VECTOR<ITEM> items
 }

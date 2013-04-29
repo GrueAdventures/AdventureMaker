@@ -1,6 +1,5 @@
 package objects;
 
-import java.util.Iterator;
 import java.util.Vector;
 
 import util.annotations.Column;

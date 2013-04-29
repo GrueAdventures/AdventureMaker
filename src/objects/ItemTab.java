@@ -55,21 +55,12 @@ public class ItemTab {
 	}
 	
 	@Row(1) @Column(1) @Explanation("Input an Item id to remove it from the list.")@Label("Remove Item")
-	public void removeItem(String id){
-		int i=0;
-		if(i==items.size()){
-			System.out.println("Item "+id+" was not found.");
+	public void removeItem(int i){
+		if((i>items.size())||(i<=0)){
+			System.out.println("Please enter a number within the range.");
 			return;
 		}
-		//Search for first occurrence of "item" and removes it from vector. We are guaranteed a single occurrence of
-		//an item by addItem(Item)
-		while(!items.get(i).getId().equalsIgnoreCase(id)){
-			i++;
-			if(i==items.size()){
-				System.out.println("Item "+id+" was not found.");
-				return;
-			}
-		}
+		i=i-1;
 		items.remove(items.get(i));
 	}
 	
