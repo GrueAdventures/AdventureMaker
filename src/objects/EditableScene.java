@@ -87,7 +87,8 @@ public class EditableScene extends Scene {
 	//BEGIN ADD AND REMOVE METHODS FOR VECTOR<STRING> items AND adjoins
 	
 	@Row(9) @Column(0) @Explanation("Add an Item id to this Scene")@Label("Add Item")
-	public void addItem(String item){
+	public void addItem(){
+		String item = "";
 		//Check to make sure scene does not already contain the item
 		if(!items.contains(item)){
 			items.add(item);
@@ -97,7 +98,7 @@ public class EditableScene extends Scene {
 	}
 	
 
-	@Row(9) @Column(2) @Explanation("Remove an Item id from this Scene")@Label("Remove Item")
+	@Row(9) @Column(1) @Explanation("Remove an Item id from this Scene")@Label("Remove Item")
 	public void removeItem(int i){
 		if((i>items.size())||(i<=0)){
 			System.out.println("Please enter a number within the range.");
@@ -107,8 +108,9 @@ public class EditableScene extends Scene {
 		items.remove(items.get(i));
 	}
 	
-	@Row(11) @Column(0) @Explanation("Add an ajoining Scene id to this Scene") @Label("Add Scene")
-	public void addScene(String scene){
+	@Row(11) @Column(0) @Explanation("Add an ajoining Scene id to this Scene") @Label("Add Adjacent Scene")
+	public void addScene(){
+		String scene = "";
 		//Check to make sure scene is not already joined
 		if(!adjoins.contains(scene)){
 			adjoins.add(scene);
@@ -117,7 +119,7 @@ public class EditableScene extends Scene {
 			System.out.println(this.id+" already contains "+scene);
 	}
 	
-	@Row(11) @Column(2) @Explanation("Remove an ajoining Scene id from this Scene") @Label("Remove Scene")
+	@Row(11) @Column(1) @Explanation("Remove an ajoining Scene id from this Scene") @Label("Remove Scene")
 	public void removeScene(int i){
 		if((i>adjoins.size())||(i<=0)){
 			System.out.println("Please enter a number within the range.");

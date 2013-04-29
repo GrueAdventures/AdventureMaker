@@ -2,6 +2,7 @@ package main;
 
 import java.awt.Color;
 import java.awt.List;
+import java.lang.reflect.Method;
 import java.util.Vector;
 
 import bus.uigen.ObjectEditor;
@@ -32,12 +33,103 @@ public class Driver {
 //		ObjectEditor.setPropertyAttribute(EditableScene.class, "Adjoins", AttributeNames.CONTAINER_WIDTH, 400);
 //		ObjectEditor.setPropertyAttribute(EditableScene.class, "Items", AttributeNames.CONTAINER_WIDTH, 400);
 //		
-////		ObjectEditor.setPropertyAttribute(EditableItem.class, "Save", AttributeNames.SHOW_BUTTON, true);
-////		ObjectEditor.setDefaultAttribute(AttributeNames.CONTAINER_BACKGROUND, Color.BLUE);
+//		ObjectEditor.setPropertyAttribute(EditableItem.class, "Save", AttributeNames.SHOW_BUTTON, true);
+//		ObjectEditor.setDefaultAttribute(AttributeNames.CONTAINER_BACKGROUND, Color.BLUE);
 //		
+//		ObjectEditor.setPropertyAttribute(EditableItem.class, "visualDescription", AttributeNames.CONTAINER_WIDTH, 2500);
+//		ObjectEditor.setPropertyAttribute(EditableItem.class, "visualDescription", AttributeNames.CONTAINER_HEIGHT, 2000);
+		
+		establishParameterNames();
+		
 		ObjectEditor.edit(new World());
 //		ObjectEditor.tabEdit(new World());
 //	ObjectEditor.edit(new Vector<String>());
+		
+	}
+	
+	//DO NOT OPEN!!!!
+	private static void establishParameterNames(){
+		Class[] parameterTypes = {Integer.TYPE};
+		try {
+			Method addMethod = ItemTab.class.getMethod("removeItem", parameterTypes);
+			String[] parameterNames = {"Enter number id of Item you want to remove."};
+			ObjectEditor.registerParameterNames(addMethod, parameterNames);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Method addMethod = ItemTab.class.getMethod("editItem", parameterTypes);
+			String[] parameterNames = {"Enter number id of Item you want to edit."};
+			ObjectEditor.registerParameterNames(addMethod, parameterNames);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Method addMethod = SceneTab.class.getMethod("removeScene", parameterTypes);
+			String[] parameterNames = {"Enter number id of Scene you want to remove."};
+			ObjectEditor.registerParameterNames(addMethod, parameterNames);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Method addMethod = SceneTab.class.getMethod("editScene", parameterTypes);
+			String[] parameterNames = {"Enter number id of Scene you want to edit."};
+			ObjectEditor.registerParameterNames(addMethod, parameterNames);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Method addMethod = EventTab.class.getMethod("removeEvent", parameterTypes);
+			String[] parameterNames = {"Enter number id of Event you want to remove."};
+			ObjectEditor.registerParameterNames(addMethod, parameterNames);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Method addMethod = EventTab.class.getMethod("editEvent", parameterTypes);
+			String[] parameterNames = {"Enter number id of Event you want to edit."};
+			ObjectEditor.registerParameterNames(addMethod, parameterNames);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Method addMethod = EditableScene.class.getMethod("removeScene", parameterTypes);
+			String[] parameterNames = {"Enter number id of Scene you want to remove."};
+			ObjectEditor.registerParameterNames(addMethod, parameterNames);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Method addMethod = EditableScene.class.getMethod("removeItem", parameterTypes);
+			String[] parameterNames = {"Enter number id of Item you want to remove."};
+			ObjectEditor.registerParameterNames(addMethod, parameterNames);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Method addMethod = EditableEvent.class.getMethod("removeExec", parameterTypes);
+			String[] parameterNames = {"Enter number id of Exec you want to remove."};
+			ObjectEditor.registerParameterNames(addMethod, parameterNames);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 

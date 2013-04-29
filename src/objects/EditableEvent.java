@@ -2,11 +2,7 @@ package objects;
 
 import java.util.Vector;
 
-import util.annotations.Visible;
-import util.annotations.Column;
-import util.annotations.Explanation;
-import util.annotations.Row;
-import util.annotations.StructurePattern;
+import util.annotations.*;
 
 @StructurePattern("Bean Pattern")
 public class EditableEvent extends Event{ 
@@ -40,7 +36,7 @@ public class EditableEvent extends Event{
 			System.out.println(this.id+" already contains "+ex);
 	}
 	
-	@Row(3) @Column(1)
+	@Row(3) @Column(1) @Label("Remove Exec")
 	public void removeExec(int i){
 		if((i>execs.size())||(i<=0)){
 			System.out.println("Please enter a number within the range.");
