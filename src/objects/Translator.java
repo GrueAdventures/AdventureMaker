@@ -306,7 +306,11 @@ public class Translator {
 				"            {\r\n" + 
 				"                \"description\": \"What item will you use?\",\r\n" + 
 				"                \"narration\": \"sound://speech/whatItemWillYouUse\"\r\n" + 
-				"            }\r\n" + 
+				"            },\r\n" +
+				"			{\r\n" + 
+				"                \"description\": \"Use this on what?\",\r\n" + 
+				"                \"narration\": \"sound://speech/useThisOnWhat\"\r\n" + 
+				"            }"  +
 				"        ],\r\n" + 
 				"        \"noInteraction\": [\r\n" + 
 				"            {\r\n" + 
@@ -318,12 +322,6 @@ public class Translator {
 				"            {\r\n" + 
 				"                \"description\": \"Nothing happened.\",\r\n" + 
 				"                \"narration\": \"sound://speech/nothingHappened\"\r\n" + 
-				"            }\r\n" + 
-				"        ],\r\n" + 
-				"        \"promptInteract\": [\r\n" + 
-				"            {\r\n" + 
-				"                \"description\": \"Use this on what?\",\r\n" + 
-				"                \"narration\": \"sound://speech/useThisOnWhat\"\r\n" + 
 				"            }\r\n" + 
 				"        ],\r\n" + 
 				"        \"type\": \"ctrl\",\r\n" + 
