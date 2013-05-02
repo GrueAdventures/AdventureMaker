@@ -1,9 +1,10 @@
 package objects;
 
+import java.io.Serializable;
 import util.annotations.*;
 
 @StructurePattern("Bean Pattern")
-public class Exec {
+public class Exec implements Serializable{
 	
 	private ActionType action;
 	private String arg1;
