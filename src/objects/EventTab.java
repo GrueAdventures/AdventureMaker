@@ -26,10 +26,11 @@ public class EventTab {
 	}
 	
 	private void clear(){
-		event.setId("");
-		event.getOn().resetOn();
-		event.getReport().resetReport();
-		event.getExecs().clear();
+//		event.setId("");
+//		event.getOn().resetOn();
+//		event.getReport().resetReport();
+//		event.getExecs().clear();
+		event = new EditableEvent();
 	}
 	
 	//BEGIN ADD, REMOVE, AND EDIT METHODS FOR VECTOR<ITEM> items
@@ -78,6 +79,7 @@ public class EventTab {
 		event.editOn(ev.getOn().getType(), ev.getOn().getArg1(), ev.getOn().getArg2());
 		event.editReport(ev.getReport().getTitle(), ev.getReport().getDescription(), ev.getReport().getBackdrop(), ev.getReport().getNarration(),
 				ev.getReport().getSound(), ev.getReport().getAmbience());
+		event.copyExecs(ev.getExecs());
 		
 	}
 		//END ADD, REMOVE, AND EDIT METHODS FOR VECTOR<ITEM> items

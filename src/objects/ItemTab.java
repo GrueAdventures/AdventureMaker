@@ -26,13 +26,14 @@ public class ItemTab {
 	}
 	
 	private void clear(){
-		item.setId("");
-		item.setVisualName("");
-		item.setVisualDescription("");
-		item.setAuralName("");
-		item.setAuralDescription("");
-		item.setTakeable(false);
-		item.setUseable(false);
+//		item.setId("");
+//		item.setVisualName("");
+//		item.setVisualDescription("");
+//		item.setAuralName("");
+//		item.setAuralDescription("");
+//		item.setTakeable(false);
+//		item.setUseable(false);
+		item = new EditableItem();
 	}
 	
 	//BEGIN ADD, REMOVE, AND EDIT METHODS FOR VECTOR<ITEM> items

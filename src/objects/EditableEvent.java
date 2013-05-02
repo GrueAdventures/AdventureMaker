@@ -65,4 +65,9 @@ public class EditableEvent extends Event{
 		report.setSound(sound);
 		report.setAmbience(ambience);
 	}
+	
+	@Visible(false)
+	public void copyExecs(Vector<Exec> exs){
+		execs = (Vector<Exec>) util.misc.Common.deepCopy(exs);
+	}
 }

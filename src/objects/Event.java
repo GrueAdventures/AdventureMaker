@@ -39,7 +39,7 @@ public class Event extends AbstractObject implements ObjectInterface{
 		return id;
 	}
 
-	@Row(1) @Column(0) @Explanation("")
+	@Visible(false)
 	public On getOn(){
 		return on;
 	}
