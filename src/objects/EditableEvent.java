@@ -1,7 +1,6 @@
 package objects;
 
 import java.util.Vector;
-
 import util.annotations.*;
 
 @StructurePattern("Bean Pattern")

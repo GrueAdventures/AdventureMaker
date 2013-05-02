@@ -1,10 +1,6 @@
 package objects;
 
-import util.annotations.Visible;
-import util.annotations.Column;
-import util.annotations.Explanation;
-import util.annotations.Row;
-import util.annotations.StructurePattern;
+import util.annotations.*;
 
 @StructurePattern("Bean Pattern")
 public class On {

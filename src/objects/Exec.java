@@ -1,11 +1,6 @@
 package objects;
 
-import java.util.Vector;
-
-import util.annotations.Column;
-import util.annotations.Row;
-import util.annotations.Explanation;
-import util.annotations.StructurePattern;
+import util.annotations.*;
 
 @StructurePattern("Bean Pattern")
 public class Exec {

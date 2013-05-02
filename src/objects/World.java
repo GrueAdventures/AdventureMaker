@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Iterator;
-import java.util.Vector;
 
 import util.annotations.Column;
 import util.annotations.PropertyNames;
@@ -14,29 +13,21 @@ import util.annotations.StructurePattern;
 @StructurePattern("Bean Pattern")
 @PropertyNames({"item", "scene", "event", "gameInfo"})
 public class World {
-	private Player player;
 	private ItemTab itemTab;
 	private SceneTab sceneTab;
 	private EventTab eventTab;
 	private GameInfoTab gameInfoTab;
-//	private Vector<Event> events;
-	private Vector<Ctrl> ctrls;
+//	private Vector<Ctrl> ctrls;
 	
 	private Translator translator = new Translator();
 	
 	public World(){
-		player = new Player();
 		itemTab = new ItemTab();
 		sceneTab = new SceneTab();
 		eventTab = new EventTab();
 		gameInfoTab = new GameInfoTab();
-//		events = new Vector<Event>();
-		ctrls = new Vector<Ctrl>();
+//		ctrls = new Vector<Ctrl>();
 	}
-
-//	public Player getPlayer() {
-//		return player;
-//	}
 	
 	@Row(0) @Column(0)
 	public ItemTab getItem(){
@@ -57,33 +48,6 @@ public class World {
 	public GameInfoTab getGameInfo(){
 		return gameInfoTab;
 	}
-//	@Row(3) @Column(0)
-//	public Vector<Event> getEvents() {
-//		return events;
-//	}
-//	
-//	public void addEvent(Event event){
-//		//Check to make sure world does not already contain the event
-//		if(!events.contains(event)){
-//			events.add(event);
-//		}
-//		else
-//			System.out.println("World already contains "+event.getId());
-//	}
-//	
-//	public void removeEvent(Event event){
-//		int i=0;
-//		//Search for first occurrence of "event" and removes it from vector. We are guaranteed a single occurrence of
-//		//an event by addEvent(Event)
-//		while(!events.get(i).getId().equalsIgnoreCase(event.getId())){
-//			i++;
-//			if(i==events.size()){
-//				System.out.println("Event "+event.getId()+" was not found.");
-//				return;
-//			}
-//		}
-//		events.remove(event);
-//	}
 	
 	public void translate() throws FileNotFoundException{
 		File file = new File("world.json");

@@ -1,11 +1,7 @@
 package objects;
 
 import java.util.Vector;
-import util.annotations.Explanation;
-import util.annotations.Column;
-import util.annotations.Label;
-import util.annotations.Row;
-import util.annotations.StructurePattern;
+import util.annotations.*;
 
 //Wrapper class for EditableEvent+Vector<Event>
 @StructurePattern("Bean Pattern")
