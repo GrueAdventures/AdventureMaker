@@ -76,8 +76,8 @@ public class Driver {
 		
 		establishParameterNames();
 		
-		ObjectEditor.edit(new World());
-//		ObjectEditor.tabEdit(new World());
+//		ObjectEditor.edit(new World());
+		ObjectEditor.tabEdit(new World());
 //	ObjectEditor.edit(new Vector<String>());
 		
 //		implement Serializable
