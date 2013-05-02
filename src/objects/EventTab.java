@@ -75,7 +75,9 @@ public class EventTab {
 		Event ev = events.get(i-1);
 		events.remove(events.get(i-1));
 		event.setId(ev.getId());
-		event.editOn((EditableOn) ev.getOn());
+		event.editOn(ev.getOn().getType(), ev.getOn().getArg1(), ev.getOn().getArg2());
+		event.editReport(ev.getReport().getTitle(), ev.getReport().getDescription(), ev.getReport().getBackdrop(), ev.getReport().getNarration(),
+				ev.getReport().getSound(), ev.getReport().getAmbience());
 		
 	}
 		//END ADD, REMOVE, AND EDIT METHODS FOR VECTOR<ITEM> items

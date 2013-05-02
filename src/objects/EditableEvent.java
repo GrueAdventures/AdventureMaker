@@ -5,13 +5,17 @@ import util.annotations.*;
 
 @StructurePattern("Bean Pattern")
 public class EditableEvent extends Event{ 
-
+		EditableReport report;
 	public EditableEvent(){
 		type = "event";
 		id = "";
 		execs = new Vector<Exec>();
-		report = new EditableReport();
+		this.report = new EditableReport();
 		on = new EditableOn();
+	}
+	@Row(4) @Column(0)
+	public Report getReport(){
+		return this.report;
 	}
 	
 	@Row(0) @Column(1)
@@ -46,9 +50,19 @@ public class EditableEvent extends Event{
 	}
 	
 	@Visible(false)
-	public void editOn(EditableOn eOn){
-		on.setType(eOn.getType());
-		on.setArg1(eOn.getArg1());
-		on.setArg2(eOn.getArg2());
+	public void editOn(EventType e, String a1, String a2){
+		on.setType(e);
+		on.setArg1(a1);
+		on.setArg2(a2);
+	}
+	
+	@Visible(false)
+	public void editReport(String title, String description, String backdrop, String narration, String sound, String ambience){
+		report.setTitle(title);
+		report.setDescription(description);
+		report.setBackdrop(backdrop);
+		report.setNarration(narration);
+		report.setSound(sound);
+		report.setAmbience(ambience);
 	}
 }
