@@ -47,7 +47,7 @@ public class SceneTab {
 //		Vector<String> adjoins = vectorDeepCopy(scene.getAdjoins());
 		Scene toBeAdded = new Scene(scene.getId(), scene.getVisualName(), scene.getVisualDescription(), scene.getVisualBackdrop(),
 				scene.getAuralName(), scene.getAuralDescription(), scene.getAuralBackdrop(), (Vector<String>) util.misc.Common.deepCopy(scene.getItems()),
-				(Vector<String>) util.misc.Common.deepCopy(scene.getAdjoins()), scene.getController());
+				(Vector<String>) util.misc.Common.deepCopy(scene.getAdjoins()));
 		
 		//Check to make sure world does not already contain the scene
 		if(!scenes.contains(toBeAdded)){

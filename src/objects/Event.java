@@ -4,7 +4,7 @@ import java.util.Vector;
 import util.annotations.*;
 
 @StructurePattern("Bean Pattern")
-public class Event extends AbstractObject implements ObjectInterface{
+public class Event {
 
 	protected String type;
 	protected String id;

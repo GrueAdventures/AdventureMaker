@@ -17,7 +17,7 @@ public class EditableScene extends Scene {
 		auralName = "";
 		auralDescription = "";
 		auralBackdrop = "";
-		this.controller = null;
+//		this.controller = null;
 //		items = new Vector<String>();
 		resetItems();
 		adjoins = new Vector<String>();	
@@ -58,10 +58,10 @@ public class EditableScene extends Scene {
 		this.auralBackdrop = auralBackdrop;
 	}
 
-	@Visible(false) @Row(7) @Column(1)
-	public void setController(Ctrl controller) {
-		this.controller = controller;
-	}
+//	@Visible(false) @Row(7) @Column(1)
+//	public void setController(Ctrl controller) {
+//		this.controller = controller;
+//	}
 	
 	@Row(8) @Column(0)
 	public Vector<String> getItems() {

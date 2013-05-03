@@ -1,6 +1,6 @@
 package objects;
 
-public class Ctrl implements ObjectInterface{
+public class Ctrl {
 	//TODO: Populate this class
 	private String type;
 	private String id;

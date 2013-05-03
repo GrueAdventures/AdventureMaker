@@ -3,7 +3,7 @@ package objects;
 import util.annotations.*;
 
 @StructurePattern("Bean Pattern")
-public class Item extends AbstractObject implements ObjectInterface{
+public class Item {
 	
 	protected String type;
 	protected String id;

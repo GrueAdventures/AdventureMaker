@@ -4,7 +4,7 @@ import java.util.Vector;
 import util.annotations.*;
 
 @StructurePattern("Bean Pattern")
-public class Scene implements ObjectInterface{
+public class Scene {
 	
 	protected String type;
 	protected String id;
@@ -17,7 +17,7 @@ public class Scene implements ObjectInterface{
 	protected String auralDescription;
 	protected String auralBackdrop;
 	
-	protected Ctrl controller;
+//	protected Ctrl controller;
 	
 	protected Vector<String> items;
 	protected Vector<String> adjoins;
@@ -31,7 +31,7 @@ public class Scene implements ObjectInterface{
 		auralName = "";
 		auralDescription = "";
 		auralBackdrop = "";
-		this.controller = null;
+//		this.controller = null;
 		items = new Vector<String>();
 		adjoins = new Vector<String>();	
 	}
@@ -45,13 +45,13 @@ public class Scene implements ObjectInterface{
 		auralName = "";
 		auralDescription = "";
 		auralBackdrop = "";
-		this.controller = null;
+//		this.controller = null;
 		items = new Vector<String>();
 		adjoins = new Vector<String>();	
 	}
 		
 	public Scene(String id, String vName, String vDescription, String vBackdrop,
-			String aName, String aDescription, String aBackdrop, Vector<String> items, Vector<String> adj, Ctrl controller){
+			String aName, String aDescription, String aBackdrop, Vector<String> items, Vector<String> adj){
 		type = "scene";
 		this.id = id;
 		visualName = vName;
@@ -60,7 +60,7 @@ public class Scene implements ObjectInterface{
 		auralName = aName;
 		auralDescription = aDescription;
 		auralBackdrop = aBackdrop;
-		this.controller = controller;
+//		this.controller = controller;
 		this.items = items;
 		adjoins = adj;		
 	}
@@ -105,10 +105,10 @@ public class Scene implements ObjectInterface{
 		return auralBackdrop;
 	}
 
-	@Visible(false) @Row(7) @Column(0) @Explanation("Coming soon!")
-	public Ctrl getController() {
-		return controller;
-	}
+//	@Visible(false) @Row(7) @Column(0) @Explanation("Coming soon!")
+//	public Ctrl getController() {
+//		return controller;
+//	}
 
 	@Visible(false)
 	public Vector<String> getItems() {
