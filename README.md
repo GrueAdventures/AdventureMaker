@@ -23,6 +23,6 @@ inside of World because we want each of those to be a Tab in the GUI. If you do 
 would rather just have everything in one pane, you can change the line "ObjectEditor.tabEdit(new World());" to "ObjectEditor.edit(new World());".
 
 
-If you have any questions about this project, please send a message to jlabrae on GitHub.
+If you have any questions about this project, please send a message to GrueAdventures on GitHub.
 
 Written by the Grue Adventures Team.
