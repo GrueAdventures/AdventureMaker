@@ -60,13 +60,13 @@ public class Report {
 		return ambience;
 	}
 	
-	public void resetReport(){
-		title = "";
-		description = "";
-		backdrop = "";
-		narration = "";
-		sound = "";
-		ambience = "";
-	}
+//	public void resetReport(){
+//		title = "";
+//		description = "";
+//		backdrop = "";
+//		narration = "";
+//		sound = "";
+//		ambience = "";
+//	}
 	
 }

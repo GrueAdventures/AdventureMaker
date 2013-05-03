@@ -11,7 +11,7 @@ public class EditableEvent extends Event{
 		id = "";
 		execs = new Vector<Exec>();
 		this.report = new EditableReport();
-		on = new EditableOn();
+		on = new On();
 	}
 	
 	@Row(0) @Column(1)
