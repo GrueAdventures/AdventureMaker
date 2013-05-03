@@ -49,6 +49,7 @@ public class World {
 		return gameInfoTab;
 	}
 	
+//Iterates through the objects in World, translating them, and printing them to world.json
 	public void translate() throws FileNotFoundException{
 		File file = new File("world.json");
 		PrintWriter writer = new PrintWriter(file);

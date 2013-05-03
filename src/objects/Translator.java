@@ -1,3 +1,5 @@
+//This class provides methods for converting objects in the World class into JSON.
+
 package objects;
 
 import java.io.PrintWriter;
