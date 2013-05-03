@@ -13,14 +13,15 @@ public class EditableEvent extends Event{
 		this.report = new EditableReport();
 		on = new EditableOn();
 	}
-	@Row(4) @Column(0)
-	public Report getReport(){
-		return this.report;
-	}
 	
 	@Row(0) @Column(1)
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	@Row(1) @Column(0)
+	public On getOn(){
+		return on;
 	}
 	
 	@Row(2) @Column(0) @Explanation("")
@@ -47,6 +48,11 @@ public class EditableEvent extends Event{
 		}
 		i=i-1;
 		execs.remove(execs.get(i));
+	}
+	
+	@Row(4) @Column(0)
+	public Report getReport(){
+		return this.report;
 	}
 	
 	@Visible(false)
