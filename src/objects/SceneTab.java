@@ -26,16 +26,6 @@ public class SceneTab {
 	}
 	
 	private void clear(){
-//		scene.setId("");
-//		scene.setVisualName("");
-//		scene.setVisualDescription("");
-//		scene.setVisualBackdrop("");
-//		scene.setAuralName("");
-//		scene.setAuralDescription("");
-//		scene.setAuralBackdrop("");
-//		scene.setController(null);
-//		scene.getItems().clear();
-//		scene.getAdjoins().clear();
 		scene = new EditableScene();
 	}
 	

@@ -26,10 +26,6 @@ public class EventTab {
 	}
 	
 	private void clear(){
-//		event.setId("");
-//		event.getOn().resetOn();
-//		event.getReport().resetReport();
-//		event.getExecs().clear();
 		event = new EditableEvent();
 	}
 	
